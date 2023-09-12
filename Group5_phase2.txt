@@ -1,0 +1,1699 @@
+-- Create the MMA_Cohorts table
+CREATE TABLE MMA_Cohorts (
+    mmaCo_id INT PRIMARY KEY
+);
+
+ 
+
+INSERT INTO MMA_Cohorts (mmaCo_id) VALUES (2024);
+INSERT INTO MMA_Cohorts (mmaCo_id) VALUES (2023);
+INSERT INTO MMA_Cohorts (mmaCo_id) VALUES (2022);
+INSERT INTO MMA_Cohorts (mmaCo_id) VALUES (2021);
+INSERT INTO MMA_Cohorts (mmaCo_id) VALUES (2020);
+INSERT INTO MMA_Cohorts (mmaCo_id) VALUES (2019);
+
+ 
+
+-- Create the Departments table
+CREATE TABLE Departments (
+    dept_id VARCHAR(10) PRIMARY KEY,
+    dept_name VARCHAR(255)
+);
+
+ 
+
+-- Inserting values for Departments
+INSERT INTO Departments (dept_id, dept_name) VALUES ('STATS', 'Statistics');
+INSERT INTO Departments (dept_id, dept_name) VALUES ('SWD', 'Software development');
+INSERT INTO Departments (dept_id, dept_name) VALUES ('DBMS', 'Data Base Management System');
+INSERT INTO Departments (dept_id, dept_name) VALUES ('MGMT', 'Management');
+INSERT INTO Departments (dept_id, dept_name) VALUES ('FIN', 'Finance');
+INSERT INTO Departments (dept_id, dept_name) VALUES ('AI', 'Artificial Intelligence');
+INSERT INTO Departments (dept_id, dept_name) VALUES ('BI', 'Business Intelligence');
+
+ 
+
+
+-- Create the Industries table
+CREATE TABLE Industries (
+    industry_id INT PRIMARY KEY,
+    industry_name VARCHAR(255)
+);
+
+ 
+
+-- Inserting values for Industries
+INSERT INTO Industries (industry_id, industry_name) VALUES (1, 'Technology');
+INSERT INTO Industries (industry_id, industry_name) VALUES (2, 'Healthcare');
+INSERT INTO Industries (industry_id, industry_name) VALUES (3, 'Finance');
+INSERT INTO Industries (industry_id, industry_name) VALUES (4, 'Automotive');
+INSERT INTO Industries (industry_id, industry_name) VALUES (5, 'Retail');
+INSERT INTO Industries (industry_id, industry_name) VALUES (6, 'Education');
+INSERT INTO Industries (industry_id, industry_name) VALUES (7, 'Manufacturing');
+INSERT INTO Industries (industry_id, industry_name) VALUES (8, 'Entertainment');
+INSERT INTO Industries (industry_id, industry_name) VALUES (9, 'Telecommunications');
+INSERT INTO Industries (industry_id, industry_name) VALUES (10, 'Energy');
+
+ 
+
+
+-- Create the Threads table
+CREATE TABLE Threads (
+    thread_id INT PRIMARY KEY,
+    thread_title VARCHAR(255),
+    thread_timestamp TIMESTAMP
+);
+
+ 
+
+-- VALUES TO BE ADDED TO THREADS
+
+INSERT INTO Threads (thread_id, thread_title, thread_timestamp) 
+VALUES (1, 'INSY-660', '2023-07-19 10:30:00'), (2, 'INSY-661', '2023-07-19 10:31:00'),
+	  (3, 'MGSC-660', '2023-07-19 10:32:00'), (4, 'ORGB-660', '2023-07-19 10:33:00'),
+     (5, 'ORGB-661', '2023-07-19 10:34:00'), (6, 'general_chat', '2023-07-10 10:30:00'),
+     (7, 'events', '2023-07-10 10:34:00'), (8, 'mtl_exploration', '2023-07-10 10:31:00'),
+     (9, 'study', '2023-07-12 10:31:00'),
+     (10, 'Technology', '2023-07-19 10:31:00'),
+    (11, 'Healthcare', '2023-07-19 10:31:00'),
+    (12, 'Finance', '2023-07-19 10:31:00'),
+    (13, 'Automotive', '2023-07-19 10:31:00'),
+    (14, 'Retail', '2023-07-19 10:31:00'),
+    (15, 'Education', '2023-07-19 10:31:00'),
+    (16, 'Manufacturing', '2023-07-19 10:31:00'),
+    (17, 'Entertainment', '2023-07-19 10:31:00'),
+    (18, 'Telecommunications', '2023-07-19 10:31:00'),
+    (19, 'Energy', '2023-07-19 10:31:00');
+
+-- Create the Courses table
+CREATE TABLE Courses (
+    dept_id VARCHAR(10),
+    course_id INT,
+    course_name VARCHAR(255),
+    PRIMARY KEY (dept_id, course_id),
+    FOREIGN KEY (dept_id) REFERENCES Departments(dept_id)
+);
+
+ 
+
+-- Inserting values for Courses
+INSERT INTO Courses (dept_id, course_id, course_name) VALUES ('STATS', 101, 'Introduction to Statistics');
+INSERT INTO Courses (dept_id, course_id, course_name) VALUES ('STATS', 102, 'Advanced Statistics');
+INSERT INTO Courses (dept_id, course_id, course_name) VALUES ('SWD', 201, 'Introduction to Programming');
+INSERT INTO Courses (dept_id, course_id, course_name) VALUES ('SWD', 202, 'Software Development Fundamentals');
+INSERT INTO Courses (dept_id, course_id, course_name) VALUES ('DBMS', 301, 'Database Design');
+INSERT INTO Courses (dept_id, course_id, course_name) VALUES ('DBMS', 302, 'SQL Fundamentals');
+INSERT INTO Courses (dept_id, course_id, course_name) VALUES ('MGMT', 401, 'Introduction to Business');
+INSERT INTO Courses (dept_id, course_id, course_name) VALUES ('MGMT', 402, 'Marketing Principles');
+INSERT INTO Courses (dept_id, course_id, course_name) VALUES ('FIN', 501, 'Finance Fundamentals');
+INSERT INTO Courses (dept_id, course_id, course_name) VALUES ('FIN', 502, 'Financial Analysis');
+INSERT INTO Courses (dept_id, course_id, course_name) VALUES ('AI', 601, 'Introduction to AI');
+INSERT INTO Courses (dept_id, course_id, course_name) VALUES ('AI', 602, 'Machine Learning Basics');
+INSERT INTO Courses (dept_id, course_id, course_name) VALUES ('BI', 701, 'Business Intelligence Concepts');
+INSERT INTO Courses (dept_id, course_id, course_name) VALUES ('BI', 702, 'Data Visualization');
+INSERT INTO Courses (dept_id, course_id, course_name) VALUES ('STATS', 103, 'Probability Theory');
+INSERT INTO Courses (dept_id, course_id, course_name) VALUES ('SWD', 203, 'Object-Oriented Programming');
+INSERT INTO Courses (dept_id, course_id, course_name) VALUES ('DBMS', 303, 'Database Administration');
+INSERT INTO Courses (dept_id, course_id, course_name) VALUES ('MGMT', 403, 'Business Ethics');
+INSERT INTO Courses (dept_id, course_id, course_name) VALUES ('FIN', 503, 'Investment Strategies');
+INSERT INTO Courses (dept_id, course_id, course_name) VALUES ('AI', 603, 'Deep Learning Fundamentals');
+
+ 
+
+
+-- Create the Students table
+CREATE TABLE Students (
+    stud_id INT PRIMARY KEY,
+    stud_fname VARCHAR(255),
+    stud_lname VARCHAR(255),
+    stud_phone VARCHAR(20),
+    stud_email VARCHAR(255),
+    stud_city VARCHAR(255),
+    stud_province VARCHAR(255),
+    stud_country VARCHAR(255),
+    stud_linkedIn_url VARCHAR(255),
+    stud_dob DATE,
+    stud_gender VARCHAR(10),
+    mmaCo_id INT,
+    FOREIGN KEY (mmaCo_id) REFERENCES MMA_Cohorts(mmaCo_id)
+);
+
+
+ 
+
+-- Inserting values for Students (Sample Data)
+-- Cohort IDs correspond to the cohorts you provided earlier
+INSERT INTO Students (
+    stud_id, stud_fname, stud_lname, stud_phone, stud_email, stud_city,
+    stud_province, stud_country, stud_linkedIn_url, stud_dob, stud_gender, mmaCo_id
+)
+VALUES
+    (1, 'John', 'Doe', '1234567890','user1mailmcgillca','Los Angeles','CA','USA','url','1995-09-20','Female',2019),
+(2,'Aisha','Khan', '1234567890','user2mailmcgillca','Los Angeles','CA','USA','url','1995-09-20','Female',2020),
+(3,'Leonardo','Rossi', '1234567890','user3mailmcgillca','London','ENG','UK','url','1987-12-10','Male',2021),
+(4,'Mei','Chen', '1234567890','user4mailmcgillca','Paris','IDF','France','url','2000-03-08','Female',2022),
+(5,'Alejandro','Gonzalez', '1234567890','user5mailmcgillca','Tokyo','TKY','Japan','url','1993-07-17','Male',2023),
+(6,'Fatima','Ahmed', '1234567890','user6mailmcgillca','Sydney','NSW','Australia','url','1989-11-25','Female',2024),
+(7,'Maxim','Petrov', '1234567890','user7mailmcgillca','Berlin','BE','Germany','url','1991-02-02','Male',2019),
+(8,'Svetlana','Ivanova', '1234567890','user8mailmcgillca','Toronto','ON','Canada','url','1997-04-05','Female',2020),
+(9,'Rajesh','Patel', '1234567890','user9mailmcgillca','Mumbai','MH','India','url','1994-08-12','Male',2021),
+(10,'Leila','Rahman', '1234567890','user10mailmcgillca','Rio de Janeiro','RJ','Brazil','url','2002-01-30','Female',2022),
+(11,'Carlos','da Silva', '1234567890','user11mailmcgillca','Dubai','DU','UAE','url','1990-06-22','Male',2023),
+(12,'Yuki','Tanaka', '1234567890','user12mailmcgillca','Shanghai','SHA','China','url','1986-10-18','Female',2024),
+(13,'Isabella','Santos', '1234567890','user13mailmcgillca','Moscow','MOW','Russia','url','1998-09-09','Male',2019),
+(14,'Ahmed','Ali', '1234567890','user14mailmcgillca','Cape Town','WC','South Africa','url','1997-11-07','Female',2020),
+(15,'Elena','Petrova', '1234567890','user15mailmcgillca','Seoul','SO','South Korea','url','1985-12-26','Male',2021),
+(16,'Mateo','Rodriguez', '1234567890','user16mailmcgillca','Mexico City','DIF','Mexico','url','1993-03-14','Male',2022),
+(17,'Amina','Khan', '1234567890','user17mailmcgillca','Rome','LAZ','Italy','url','1996-07-01','Female',2023),
+(18,'Luca','Ferrari', '1234567890','user18mailmcgillca','Bangkok','BKK','Thailand','url','1989-09-03','Female',2024),
+(19,'Ingrid','Johansson', '1234567890','user19mailmcgillca','Amsterdam','NH','Netherlands','url','1991-11-12','Male',2019),
+(20,'Amir','Khan', '1234567890','user20mailmcgillca','Buenos Aires','C','Argentina','url','2001-04-19','Female',2020),
+(21,'Leila','Said', '1234567890','user21mailmcgillca','Helsinki','UUS','Finland','url','1988-08-08','Female',2021),
+(22,'Rafael','Costa', '1234567890','user22mailmcgillca','Dublin','D','Ireland','url','1994-10-27','Male',2022),
+(23,'Mei','Wong', '1234567890','user23mailmcgillca','Lisbon','11','Portugal','url','1992-12-15','Female',2023),
+(24,'Amir','Hussein', '1234567890','user24mailmcgillca','Stockholm','AB','Sweden','url','1995-02-09','Male',2024),
+(25,'Sofia','Garcia', '1234567890','user25mailmcgillca','Zurich','ZH','Switzerland','url','2000-05-04','Female',2019),
+(26,'Javier','Khan', '1234567890','user26mailmcgillca','Madrid','M','Spain','url','1987-03-23','Male',2020),
+(27,'Aisha','Rossi', '1234567890','user27mailmcgillca','Oslo','3','Norway','url','1998-06-16','Female',2021),
+(28,'JeanLuc','Chen', '1234567890','user28mailmcgillca','Singapore','SG','Singapore','url','1990-09-29','Male',2022),
+(29,'Yasmine','Gonzalez', '1234567890','user29mailmcgillca','Istanbul','34','Turkey','url','1993-12-21','Female',2023),
+(30,'Ivan','Ahmed', '1234567890','user30mailmcgillca','Beijing','BJ','China','url','1986-08-07','Male',2024),
+(31,'Olivia','Petrov', '1234567890','user31mailmcgillca','Cairo','C','Egypt','url','1997-11-10','Male',2019),
+(32,'Mohamed','Ivanova', '1234567890','user32mailmcgillca','Vienna','9','Austria','url','1994-02-14','Female',2020),
+(33,'Wei','Patel', '1234567890','user33mailmcgillca','Prague','10','Czech Republic','url','1991-06-11','Male',2021),
+(34,'Sven','Rahman', '1234567890','user34mailmcgillca','Budapest','5','Hungary','url','1999-09-02','Male',2022),
+(35,'Mia','da Silva', '1234567890','user35mailmcgillca','Lima','LIM','Peru','url','1988-04-18','Female',2023),
+(36,'Ayman','Tanaka', '1234567890','user36mailmcgillca','Warsaw','MZ','Poland','url','1997-05-15','Male',2024),
+(37,'Sofia','Santos', '1234567890','user37mailmcgillca','Jakarta','JK','Indonesia','url','2000-02-28','Male',2019),
+(38,'Diego','Ali', '1234567890','user38mailmcgillca','Edinburgh','EDH','UK','url','1989-10-10','Male',2020),
+(39,'Priya','Petrova', '1234567890','user39mailmcgillca','San Francisco','CA','USA','url','1992-03-19','Female',2021),
+(40,'Leandro','Rodriguez', '1234567890','user40mailmcgillca','Brussels','BRU','Belgium','url','1995-08-09','Male',2022),
+(41,'Ewa','Khan', '1234567890','user41mailmcgillca','Seoul','SO','South Korea','url','1987-01-24','Male',2023),
+(42,'Jamal','Ferrari', '1234567890','user42mailmcgillca','Johannesburg','GP','South Korea','url','1987-01-24','Male',2024),
+(43,'Elise','Johansson', '1234567890','user43mailmcgillca','Los Angeles','CA','USA','url','1995-09-20','Female',2019),
+(44,'Cristiano','Khan', '1234567890','user44mailmcgillca','London','ENG','UK','url','1987-12-10','Male',2020),
+(45,'Hiroshi','Said', '1234567890','user45mailmcgillca','Paris','IDF','France','url','2000-03-08','Female',2021),
+(46,'Maria','Costa', '1234567890','user46mailmcgillca','Tokyo','TKY','Japan','url','1993-07-17','Male',2022),
+(47,'Omar','Wong', '1234567890','user47mailmcgillca','Sydney','NSW','Australia','url','1989-11-25','Female',2023),
+(48,'Sofia','Hussein', '1234567890','user48mailmcgillca','Berlin','BE','Germany','url','1991-02-02','Male',2024),
+(49,'Santiago','Garcia', '1234567890','user49mailmcgillca','Toronto','ON','Canada','url','1997-04-05','Female',2019),
+(50,'Anika','Khan', '1234567890','user50mailmcgillca','Mumbai','MH','India','url','1994-08-12','Male',2020),
+(51,'Adnan','Rossi', '1234567890','user51mailmcgillca','Rio de Janeiro','RJ','Brazil','url','2002-01-30','Female',2021),
+(52,'Yara','Chen', '1234567890','user52mailmcgillca','Dubai','DU','UAE','url','1990-06-22','Male',2022),
+(53,'Hugo','Gonzalez', '1234567890','user53mailmcgillca','Shanghai','SHA','China','url','1986-10-18','Female',2023),
+(54,'Yuna','Ahmed', '1234567890','user54mailmcgillca','Moscow','MOW','Russia','url','1998-09-09','Male',2024),
+(55,'Mustafa','Petrov', '1234567890','user55mailmcgillca','Cape Town','WC','South Africa','url','1997-11-07','Female',2019),
+(56,'Chihiro','Ivanova', '1234567890','user56mailmcgillca','Seoul','SO','South Korea','url','1985-12-26','Male',2020),
+(57,'Ismail','Patel', '1234567890','user57mailmcgillca','Mexico City','DIF','Mexico','url','1993-03-14','Male',2021),
+(58,'Sofia','Rahman', '1234567890','user58mailmcgillca','Rome','LAZ','Italy','url','1996-07-01','Female',2022),
+(59,'Luca','da Silva', '1234567890','user59mailmcgillca','Bangkok','BKK','Thailand','url','1989-09-03','Female',2023),
+(60,'Maya','Tanaka', '1234567890','user60mailmcgillca','Amsterdam','NH','Netherlands','url','1991-11-12','Male',2024),
+(61,'Daniel','Santos', '1234567890','user61mailmcgillca','Buenos Aires','C','Argentina','url','2001-04-19','Female',2019),
+(62,'Noura','Ali', '1234567890','user62mailmcgillca','Helsinki','UUS','Finland','url','1988-08-08','Female',2020),
+(63,'Rafael','Petrova', '1234567890','user63mailmcgillca','Dublin','D','Ireland','url','1994-10-27','Male',2021),
+(64,'Mei','Rodriguez', '1234567890','user64mailmcgillca','Lisbon','11','Portugal','url','1992-12-15','Female',2022),
+(65,'Amina','Khan', '1234567890','user65mailmcgillca','Stockholm','AB','Sweden','url','1995-02-09','Male',2023),
+(66,'Alejandro','Ferrari', '1234567890','user66mailmcgillca','Zurich','ZH','Switzerland','url','2000-05-04','Female',2024),
+(67,'Emre','Johansson', '1234567890','user67mailmcgillca','Madrid','M','Spain','url','1987-03-23','Male',2019),
+(68,'Maria','Khan', '1234567890','user68mailmcgillca','Oslo','3','Norway','url','1998-06-16','Female',2020),
+(69,'Amir','Said', '1234567890','user69mailmcgillca','Singapore','SG','Singapore','url','1990-09-29','Male',2021),
+(70,'Sofia','Costa', '1234567890','user70mailmcgillca','Istanbul','34','Turkey','url','1993-12-21','Female',2022),
+(71,'Carlos','Wong', '1234567890','user71mailmcgillca','Beijing','BJ','China','url','1986-08-07','Male',2023),
+(72,'Leila','Hussein', '1234567890','user72mailmcgillca','Cairo','C','Egypt','url','1997-11-10','Male',2024),
+(73,'Jihoon','Garcia', '1234567890','user73mailmcgillca','Vienna','9','Austria','url','1994-02-14','Female',2019),
+(74,'Aisha','Khan', '1234567890','user74mailmcgillca','Prague','10','Czech Republic','url','1991-06-11','Male',2020),
+(75,'Leonardo','Rossi', '1234567890','user75mailmcgillca','Budapest','5','Hungary','url','1999-09-02','Male',2021),
+(76,'Sana','Chen', '1234567890','user76mailmcgillca','Lima','LIM','Peru','url','1988-04-18','Female',2022),
+(77,'Marco','Gonzalez', '1234567890','user77mailmcgillca','Warsaw','MZ','Poland','url','1997-05-15','Male',2023),
+(78,'Fatima','Ahmed', '1234567890','user78mailmcgillca','Jakarta','JK','Indonesia','url','2000-02-28','Male',2024),
+(79,'Luca','Petrov', '1234567890','user79mailmcgillca','Edinburgh','EDH','UK','url','1989-10-10','Male',2019),
+(80,'Ayse','Ivanova', '1234567890','user80mailmcgillca','San Francisco','CA','USA','url','1992-03-19','Female',2020),
+(81,'Leandro','Patel', '1234567890','user81mailmcgillca','Brussels','BRU','Belgium','url','1995-08-09','Male',2021),
+(82,'Anna','Rahman', '1234567890','user82mailmcgillca','Seoul','SO','South Korea','url','1987-01-24','Male',2022),
+(83,'Tariq','da Silva', '1234567890','user83mailmcgillca','Johannesburg','GP','South Korea','url','1987-01-24','Male',2023),
+(84,'Yasmine','Tanaka', '1234567890','user84mailmcgillca','Los Angeles','CA','USA','url','1995-09-20','Female',2024),
+(85,'Javier','Santos', '1234567890','user85mailmcgillca','London','ENG','UK','url','1987-12-10','Male',2019),
+(86,'Kenta','Ali', '1234567890','user86mailmcgillca','Paris','IDF','France','url','2000-03-08','Female',2020),
+(87,'Sofia','Petrova', '1234567890','user87mailmcgillca','Tokyo','TKY','Japan','url','1993-07-17','Male',2021),
+(88,'Amir','Rodriguez', '1234567890','user88mailmcgillca','Sydney','NSW','Australia','url','1989-11-25','Female',2022),
+(89,'Elena','Khan', '1234567890','user89mailmcgillca','Berlin','BE','Germany','url','1991-02-02','Male',2023),
+(90,'Ahmed','Ferrari', '1234567890','user90mailmcgillca','Toronto','ON','Canada','url','1997-04-05','Female',2024),
+(91,'Ingrid','Johansson', '1234567890','user91mailmcgillca','Mumbai','MH','India','url','1994-08-12','Male',2019),
+(92,'Amir','Khan', '1234567890','user92mailmcgillca','Rio de Janeiro','RJ','Brazil','url','2002-01-30','Female',2020),
+(93,'Sofia','Said', '1234567890','user93mailmcgillca','Dubai','DU','UAE','url','1990-06-22','Male',2021),
+(94,'Rafael','Costa', '1234567890','user94mailmcgillca','Shanghai','SHA','China','url','1986-10-18','Female',2022),
+(95,'Mei','Wong', '1234567890','user95mailmcgillca','Moscow','MOW','Russia','url','1998-09-09','Male',2023),
+(96,'Leila','Hussein', '1234567890','user96mailmcgillca','Cape Town','WC','South Africa','url','1997-11-07','Female',2024),
+(97,'Sven','Garcia', '1234567890','user97mailmcgillca','Seoul','SO','South Korea','url','1985-12-26','Male',2019),
+(98,'Maya','Khan', '1234567890','user98mailmcgillca','Mexico City','DIF','Mexico','url','1993-03-14','Male',2020),
+(99,'Adnan','Rossi', '1234567890','user99mailmcgillca','Rome','LAZ','Italy','url','1996-07-01','Female',2021),
+(100,'Yara','Chen', '1234567890','user100mailmcgillca','Bangkok','BKK','Thailand','url','1989-09-03','Female',2022),
+(101,'Luca','Gonzalez', '1234567890','user101mailmcgillca','Amsterdam','NH','Netherlands','url','1991-11-12','Male',2023),
+(102,'Priya','Ahmed', '1234567890','user102mailmcgillca','Buenos Aires','C','Argentina','url','2001-04-19','Female',2024),
+(103,'Leonardo','Petrov', '1234567890','user103mailmcgillca','Helsinki','UUS','Finland','url','1988-08-08','Female',2019),
+(104,'Yuna','Ivanova', '1234567890','user104mailmcgillca','Dublin','D','Ireland','url','1994-10-27','Male',2020),
+(105,'Mateo','Patel', '1234567890','user105mailmcgillca','Lisbon','11','Portugal','url','1992-12-15','Female',2021),
+(106,'Anika','Rahman', '1234567890','user106mailmcgillca','Stockholm','AB','Sweden','url','1995-02-09','Male',2022),
+(107,'Omar','da Silva', '1234567890','user107mailmcgillca','Zurich','ZH','Switzerland','url','2000-05-04','Female',2023),
+(108,'Chihiro','Tanaka', '1234567890','user108mailmcgillca','Madrid','M','Spain','url','1987-03-23','Male',2024),
+(109,'Santiago','Santos', '1234567890','user109mailmcgillca','Oslo','3','Norway','url','1998-06-16','Female',2019),
+(110,'Fatima','Ali', '1234567890','user110mailmcgillca','Singapore','SG','Singapore','url','1990-09-29','Male',2020),
+(111,'Mustafa','Petrova', '1234567890','user111mailmcgillca','Istanbul','34','Turkey','url','1993-12-21','Female',2021),
+(112,'Maria','Rodriguez', '1234567890','user112mailmcgillca','Beijing','BJ','China','url','1986-08-07','Male',2022),
+(113,'Jamal','Khan', '1234567890','user113mailmcgillca','Cairo','C','Egypt','url','1997-11-10','Male',2023),
+(114,'Mia','Ferrari', '1234567890','user114mailmcgillca','Vienna','9','Austria','url','1994-02-14','Female',2024),
+(115,'Ismail','Johansson', '1234567890','user115mailmcgillca','Prague','10','Czech Republic','url','1991-06-11','Male',2019),
+(116,'Sofia','Khan', '1234567890','user116mailmcgillca','Budapest','5','Hungary','url','1999-09-02','Male',2020),
+(117,'Cristiano','Said', '1234567890','user117mailmcgillca','Lima','LIM','Peru','url','1988-04-18','Female',2021),
+(118,'Hiroshi','Costa', '1234567890','user118mailmcgillca','Warsaw','MZ','Poland','url','1997-05-15','Male',2022),
+(119,'Leila','Wong', '1234567890','user119mailmcgillca','Jakarta','JK','Indonesia','url','2000-02-28','Male',2023),
+(120,'Sofia','Hussein', '1234567890','user120mailmcgillca','Edinburgh','EDH','UK','url','1989-10-10','Male',2024),
+(121,'Ahmed','Garcia', '1234567890','user121mailmcgillca','San Francisco','CA','USA','url','1992-03-19','Female',2019),
+(122,'Sofia','Khan', '1234567890','user122mailmcgillca','Brussels','BRU','Belgium','url','1995-08-09','Male',2020),
+(123,'Yuki','Rossi', '1234567890','user123mailmcgillca','Seoul','SO','South Korea','url','1987-01-24','Male',2021),
+(124,'Priya','Chen', '1234567890','user124mailmcgillca','Johannesburg','GP','South Korea','url','1987-01-24','Male',2022),
+(125,'Leonardo','Gonzalez', '1234567890','user125mailmcgillca','Los Angeles','CA','USA','url','1995-09-20','Female',2023),
+(126,'Amina','Ahmed', '1234567890','user126mailmcgillca','London','ENG','UK','url','1987-12-10','Male',2024),
+(127,'Amir','Petrov', '1234567890','user127mailmcgillca','Paris','IDF','France','url','2000-03-08','Female',2019),
+(128,'Yasmine','Ivanova', '1234567890','user128mailmcgillca','Tokyo','TKY','Japan','url','1993-07-17','Male',2020),
+(129,'Adnan','Patel', '1234567890','user129mailmcgillca','Sydney','NSW','Australia','url','1989-11-25','Female',2021),
+(130,'Ingrid','Rahman', '1234567890','user130mailmcgillca','Berlin','BE','Germany','url','1991-02-02','Male',2022),
+(131,'Rafael','da Silva', '1234567890','user131mailmcgillca','Toronto','ON','Canada','url','1997-04-05','Female',2023),
+(132,'Fatima','Tanaka', '1234567890','user132mailmcgillca','Mumbai','MH','India','url','1994-08-12','Male',2024),
+(133,'Luca','Santos', '1234567890','user133mailmcgillca','Rio de Janeiro','RJ','Brazil','url','2002-01-30','Female',2019),
+(134,'Mei','Ali', '1234567890','user134mailmcgillca','Dubai','DU','UAE','url','1990-06-22','Male',2020),
+(135,'Amir','Petrova', '1234567890','user135mailmcgillca','Shanghai','SHA','China','url','1986-10-18','Female',2021),
+(136,'Maya','Rodriguez', '1234567890','user136mailmcgillca','Moscow','MOW','Russia','url','1998-09-09','Male',2022),
+(137,'Sofia','Khan', '1234567890','user137mailmcgillca','Cape Town','WC','South Africa','url','1997-11-07','Female',2023),
+(138,'Leandro','Ferrari', '1234567890','user138mailmcgillca','Seoul','SO','South Korea','url','1985-12-26','Male',2024),
+(139,'Elena','Johansson', '1234567890','user139mailmcgillca','Mexico City','DIF','Mexico','url','1993-03-14','Male',2019),
+(140,'Santiago','Khan', '1234567890','user140mailmcgillca','Rome','LAZ','Italy','url','1996-07-01','Female',2020),
+(141,'Aisha','Said', '1234567890','user141mailmcgillca','Bangkok','BKK','Thailand','url','1989-09-03','Female',2021),
+(142,'Ahmed','Costa', '1234567890','user142mailmcgillca','Amsterdam','NH','Netherlands','url','1991-11-12','Male',2022),
+(143,'Svetlana','Wong', '1234567890','user143mailmcgillca','Buenos Aires','C','Argentina','url','2001-04-19','Female',2023),
+(144,'Mateo','Hussein', '1234567890','user144mailmcgillca','Helsinki','UUS','Finland','url','1988-08-08','Female',2024),
+(145,'Sofia','Garcia', '1234567890','user145mailmcgillca','Dublin','D','Ireland','url','1994-10-27','Male',2019),
+(146,'Maxim','Khan', '1234567890','user146mailmcgillca','Lisbon','11','Portugal','url','1992-12-15','Female',2020),
+(147,'Isabella','Rossi', '1234567890','user147mailmcgillca','Stockholm','AB','Sweden','url','1995-02-09','Male',2021),
+(148,'Luca','Chen', '1234567890','user148mailmcgillca','Zurich','ZH','Switzerland','url','2000-05-04','Female',2022),
+(149,'Ayman','Gonzalez', '1234567890','user149mailmcgillca','Madrid','M','Spain','url','1987-03-23','Male',2023),
+(150,'Sofia','Ahmed', '1234567890','user150mailmcgillca','Oslo','3','Norway','url','1998-06-16','Female',2024),
+(151,'Alejandro','Petrov', '1234567890','user151mailmcgillca','Singapore','SG','Singapore','url','1990-09-29','Male',2019),
+(152,'Mei','Ivanova', '1234567890','user152mailmcgillca','Istanbul','34','Turkey','url','1993-12-21','Female',2020),
+(153,'Yara','Patel', '1234567890','user153mailmcgillca','Beijing','BJ','China','url','1986-08-07','Male',2021),
+(154,'Maria','Rahman', '1234567890','user154mailmcgillca','Cairo','C','Egypt','url','1997-11-10','Male',2022),
+(155,'Omar','da Silva', '1234567890','user155mailmcgillca','Vienna','9','Austria','url','1994-02-14','Female',2023),
+(156,'Leonardo','Tanaka', '1234567890','user156mailmcgillca','Prague','10','Czech Republic','url','1991-06-11','Male',2024),
+(157,'Fatima','Santos', '1234567890','user157mailmcgillca','Budapest','5','Hungary','url','1999-09-02','Male',2019),
+(158,'Amir','Ali', '1234567890','user158mailmcgillca','Lima','LIM','Peru','url','1988-04-18','Female',2020),
+(159,'Sofia','Petrova', '1234567890','user159mailmcgillca','Warsaw','MZ','Poland','url','1997-05-15','Male',2021),
+(160,'Javier','Rodriguez', '1234567890','user160mailmcgillca','Jakarta','JK','Indonesia','url','2000-02-28','Male',2022),
+(161,'Leila','Khan', '1234567890','user161mailmcgillca','Edinburgh','EDH','UK','url','1989-10-10','Male',2023),
+(162,'Rafael','Ferrari', '1234567890','user162mailmcgillca','San Francisco','CA','USA','url','1992-03-19','Female',2024),
+(163,'Carlos','Johansson', '1234567890','user163mailmcgillca','Brussels','BRU','Belgium','url','1995-08-09','Male',2019),
+(164,'Amina','Khan', '1234567890','user164mailmcgillca','Seoul','SO','South Korea','url','1987-01-24','Male',2020),
+(165,'Yuki','Said', '1234567890','user165mailmcgillca','Johannesburg','GP','South Korea','url','1987-01-24','Male',2021),
+(166,'Isabella','Costa', '1234567890','user166mailmcgillca','Los Angeles','CA','USA','url','1995-09-20','Female',2022),
+(167,'Ahmed','Wong', '1234567890','user167mailmcgillca','London','ENG','UK','url','1987-12-10','Male',2023),
+(168,'Elena','Hussein', '1234567890','user168mailmcgillca','Paris','IDF','France','url','2000-03-08','Female',2024),
+(169,'Mateo','Garcia', '1234567890','user169mailmcgillca','Tokyo','TKY','Japan','url','1993-07-17','Male',2019),
+(170,'Aisha','Khan', '1234567890','user170mailmcgillca','Sydney','NSW','Australia','url','1989-11-25','Female',2020),
+(171,'JeanLuc','Rossi', '1234567890','user171mailmcgillca','Berlin','BE','Germany','url','1991-02-02','Male',2021),
+(172,'Yasmine','Chen', '1234567890','user172mailmcgillca','Toronto','ON','Canada','url','1997-04-05','Female',2022),
+(173,'Ivan','Gonzalez', '1234567890','user173mailmcgillca','Mumbai','MH','India','url','1994-08-12','Male',2023),
+(174,'Olivia','Ahmed', '1234567890','user174mailmcgillca','Rio de Janeiro','RJ','Brazil','url','2002-01-30','Female',2024),
+(175,'Mohamed','Petrov', '1234567890','user175mailmcgillca','Dubai','DU','UAE','url','1990-06-22','Male',2019),
+(176,'Wei','Ivanova', '1234567890','user176mailmcgillca','Shanghai','SHA','China','url','1986-10-18','Female',2020),
+(177,'Sven','Patel', '1234567890','user177mailmcgillca','Moscow','MOW','Russia','url','1998-09-09','Male',2021),
+(178,'Mia','Rahman', '1234567890','user178mailmcgillca','Cape Town','WC','South Africa','url','1997-11-07','Female',2022),
+(179,'Ayman','da Silva', '1234567890','user179mailmcgillca','Seoul','SO','South Korea','url','1985-12-26','Male',2023),
+(180,'Sofia','Tanaka', '1234567890','user180mailmcgillca','Mexico City','DIF','Mexico','url','1993-03-14','Male',2024),
+(181,'Diego','Santos', '1234567890','user181mailmcgillca','Rome','LAZ','Italy','url','1996-07-01','Female',2019),
+(182,'Priya','Ali', '1234567890','user182mailmcgillca','Bangkok','BKK','Thailand','url','1989-09-03','Female',2020),
+(183,'Leandro','Petrova', '1234567890','user183mailmcgillca','Amsterdam','NH','Netherlands','url','1991-11-12','Male',2021),
+(184,'Ewa','Rodriguez', '1234567890','user184mailmcgillca','Buenos Aires','C','Argentina','url','2001-04-19','Female',2022),
+(185,'Jamal','Khan', '1234567890','user185mailmcgillca','Helsinki','UUS','Finland','url','1988-08-08','Female',2023),
+(186,'Elise','Ferrari', '1234567890','user186mailmcgillca','Dublin','D','Ireland','url','1994-10-27','Male',2024),
+(187,'Cristiano','Johansson', '1234567890','user187mailmcgillca','Lisbon','11','Portugal','url','1992-12-15','Female',2019),
+(188,'Hiroshi','Khan', '1234567890','user188mailmcgillca','Stockholm','AB','Sweden','url','1995-02-09','Male',2020),
+(189,'Maria','Said', '1234567890','user189mailmcgillca','Zurich','ZH','Switzerland','url','2000-05-04','Female',2021),
+(190,'Omar','Costa', '1234567890','user190mailmcgillca','Madrid','M','Spain','url','1987-03-23','Male',2022),
+(191,'Sofia','Wong', '1234567890','user191mailmcgillca','Oslo','3','Norway','url','1998-06-16','Female',2023),
+(192,'Santiago','Hussein', '1234567890','user192mailmcgillca','Singapore','SG','Singapore','url','1990-09-29','Male',2024),
+(193,'Anika','Garcia', '1234567890','user193mailmcgillca','Istanbul','34','Turkey','url','1993-12-21','Female',2019),
+(194,'Adnan','Khan', '1234567890','user194mailmcgillca','Beijing','BJ','China','url','1986-08-07','Male',2020),
+(195,'Yara','Rossi', '1234567890','user195mailmcgillca','Cairo','C','Egypt','url','1997-11-10','Male',2021),
+(196,'Hugo','Chen', '1234567890','user196mailmcgillca','Vienna','9','Austria','url','1994-02-14','Female',2022),
+(197,'Yuna','Gonzalez', '1234567890','user197mailmcgillca','Prague','10','Czech Republic','url','1991-06-11','Male',2023),
+(198,'Mustafa','Ahmed', '1234567890','user198mailmcgillca','Budapest','5','Hungary','url','1999-09-02','Male',2024),
+(199,'Chihiro','Petrov', '1234567890','user199mailmcgillca','Lima','LIM','Peru','url','1988-04-18','Female',2019),
+(200,'Sofia','Ivanova', '1234567890','user200mailmcgillca','Warsaw','MZ','Poland','url','1997-05-15','Male',2020),
+(201,'Luca','Patel', '1234567890','user201mailmcgillca','Jakarta','JK','Indonesia','url','2000-02-28','Male',2021),
+(202,'Maya','Rahman', '1234567890','user202mailmcgillca','Edinburgh','EDH','UK','url','1989-10-10','Male',2022),
+(203,'Daniel','da Silva', '1234567890','user203mailmcgillca','San Francisco','CA','USA','url','1992-03-19','Female',2023),
+(204,'Noura','Tanaka', '1234567890','user204mailmcgillca','Brussels','BRU','Belgium','url','1995-08-09','Male',2024),
+(205,'Rafael','Santos', '1234567890','user205mailmcgillca','Seoul','SO','South Korea','url','1987-01-24','Male',2019),
+(206,'Mei','Ali', '1234567890','user206mailmcgillca','Johannesburg','GP','South Korea','url','1987-01-24','Male',2020),
+(207,'Amina','Petrova', '1234567890','user207mailmcgillca','Los Angeles','CA','USA','url','1995-09-20','Female',2021),
+(208,'Alejandro','Rodriguez', '1234567890','user208mailmcgillca','London','ENG','UK','url','1987-12-10','Male',2022),
+(209,'Emre','Khan', '1234567890','user209mailmcgillca','Paris','IDF','France','url','2000-03-08','Female',2023),
+(210,'Maria','Ferrari', '1234567890','user210mailmcgillca','Tokyo','TKY','Japan','url','1993-07-17','Male',2024),
+(211,'Amir','Johansson', '1234567890','user211mailmcgillca','Sydney','NSW','Australia','url','1989-11-25','Female',2019),
+(212,'Sofia','Khan', '1234567890','user212mailmcgillca','Berlin','BE','Germany','url','1991-02-02','Male',2020),
+(213,'Carlos','Said', '1234567890','user213mailmcgillca','Toronto','ON','Canada','url','1997-04-05','Female',2021),
+(214,'Leila','Costa', '1234567890','user214mailmcgillca','Mumbai','MH','India','url','1994-08-12','Male',2022),
+(215,'Jihoon','Wong', '1234567890','user215mailmcgillca','Rio de Janeiro','RJ','Brazil','url','2002-01-30','Female',2023),
+(216,'Aisha','Hussein', '1234567890','user216mailmcgillca','Dubai','DU','UAE','url','1990-06-22','Male',2024),
+(217,'Leonardo','Garcia', '1234567890','user217mailmcgillca','Shanghai','SHA','China','url','1986-10-18','Female',2019),
+(218,'Sana','Khan', '1234567890','user218mailmcgillca','Moscow','MOW','Russia','url','1998-09-09','Male',2020),
+(219,'Marco','Rossi', '1234567890','user219mailmcgillca','Cape Town','WC','South Africa','url','1997-11-07','Female',2021),
+(220,'Fatima','Chen', '1234567890','user220mailmcgillca','Seoul','SO','South Korea','url','1985-12-26','Male',2022),
+(221,'Luca','Gonzalez', '1234567890','user221mailmcgillca','Mexico City','DIF','Mexico','url','1993-03-14','Male',2023),
+(222,'Ayse','Ahmed', '1234567890','user222mailmcgillca','Rome','LAZ','Italy','url','1996-07-01','Female',2024),
+(223,'Leandro','Petrov', '1234567890','user223mailmcgillca','Bangkok','BKK','Thailand','url','1989-09-03','Female',2019),
+(224,'Anna','Ivanova', '1234567890','user224mailmcgillca','Amsterdam','NH','Netherlands','url','1991-11-12','Male',2020),
+(225,'Tariq','Patel', '1234567890','user225mailmcgillca','Buenos Aires','C','Argentina','url','2001-04-19','Female',2021),
+(226,'Yasmine','Rahman', '1234567890','user226mailmcgillca','Helsinki','UUS','Finland','url','1988-08-08','Female',2022),
+(227,'Javier','da Silva', '1234567890','user227mailmcgillca','Dublin','D','Ireland','url','1994-10-27','Male',2023),
+(228,'Kenta','Tanaka', '1234567890','user228mailmcgillca','Lisbon','11','Portugal','url','1992-12-15','Female',2024),
+(229,'Sofia','Santos', '1234567890','user229mailmcgillca','Stockholm','AB','Sweden','url','1995-02-09','Male',2019),
+(230,'Amir','Ali', '1234567890','user230mailmcgillca','Zurich','ZH','Switzerland','url','2000-05-04','Female',2020),
+(231,'Elena','Petrova', '1234567890','user231mailmcgillca','Madrid','M','Spain','url','1987-03-23','Male',2021),
+(232,'Ahmed','Rodriguez', '1234567890','user232mailmcgillca','Oslo','3','Norway','url','1998-06-16','Female',2022),
+(233,'Ingrid','Khan', '1234567890','user233mailmcgillca','Singapore','SG','Singapore','url','1990-09-29','Male',2023),
+(234,'Amir','Ferrari', '1234567890','user234mailmcgillca','Istanbul','34','Turkey','url','1993-12-21','Female',2024),
+(235,'Sofia','Johansson', '1234567890','user235mailmcgillca','Beijing','BJ','China','url','1986-08-07','Male',2019),
+(236,'Rafael','Khan', '1234567890','user236mailmcgillca','Cairo','C','Egypt','url','1997-11-10','Male',2020),
+(237,'Mei','Said', '1234567890','user237mailmcgillca','Vienna','9','Austria','url','1994-02-14','Female',2021),
+(238,'Leila','Costa', '1234567890','user238mailmcgillca','Prague','10','Czech Republic','url','1991-06-11','Male',2022),
+(239,'Sven','Wong', '1234567890','user239mailmcgillca','Budapest','5','Hungary','url','1999-09-02','Male',2023),
+(240,'Maya','Hussein', '1234567890','user240mailmcgillca','Lima','LIM','Peru','url','1988-04-18','Female',2024),
+(241,'Adnan','Garcia', '1234567890','user241mailmcgillca','Warsaw','MZ','Poland','url','1997-05-15','Male',2019),
+(242,'Yara','Khan', '1234567890','user242mailmcgillca','Jakarta','JK','Indonesia','url','2000-02-28','Male',2020),
+(243,'Luca','Rossi', '1234567890','user243mailmcgillca','Edinburgh','EDH','UK','url','1989-10-10','Male',2021),
+(244,'Priya','Chen', '1234567890','user244mailmcgillca','San Francisco','CA','USA','url','1992-03-19','Female',2022),
+(245,'Leonardo','Gonzalez', '1234567890','user245mailmcgillca','Brussels','BRU','Belgium','url','1995-08-09','Male',2023),
+(246,'Yuna','Ahmed', '1234567890','user246mailmcgillca','Seoul','SO','South Korea','url','1987-01-24','Male',2024),
+(247,'Mateo','Petrov', '1234567890','user247mailmcgillca','Johannesburg','GP','South Korea','url','1987-01-24','Male',2019),
+(248,'Anika','Ivanova', '1234567890','user248mailmcgillca','Los Angeles','CA','USA','url','1995-09-20','Female',2020),
+(249,'Omar','Patel', '1234567890','user249mailmcgillca','London','ENG','UK','url','1987-12-10','Male',2021),
+(250,'Chihiro','Rahman', '1234567890','user250mailmcgillca','Paris','IDF','France','url','2000-03-08','Female',2022),
+(251,'Santiago','da Silva', '1234567890','user251mailmcgillca','Tokyo','TKY','Japan','url','1993-07-17','Male',2023);
+
+ 
+
+
+-- Create the Faculties table
+CREATE TABLE Faculties (
+    fact_id INT PRIMARY KEY,
+    fact_fname VARCHAR(255),
+    fact_lname VARCHAR(255),
+    fact_phone VARCHAR(20),
+    fact_email VARCHAR(255),
+    fact_city VARCHAR(255),
+    fact_province VARCHAR(255),
+    fact_country VARCHAR(255),
+    fact_linkedIn_url VARCHAR(255),
+    fact_dob DATE,
+    fact_gender VARCHAR(10),
+    fact_jobPosition VARCHAR(255)
+);
+
+INSERT INTO Faculties (fact_id, fact_fname, fact_lname, fact_phone, fact_email, fact_city,
+    fact_province, fact_country, fact_linkedIn_url, fact_dob, fact_gender, fact_jobPosition) 
+VALUES
+(1, 'Aurora', 'Frost', NULL, 'aurorafrost@mail.mcgill.ca', 'Montreal', 'Quebec', 'Canada', NULL, NULL, NULL, 'Associate Professor'),
+(2, 'Liam', 'Evergreen', NULL, 'liamevergreen@mail.mcgill.ca', 'Montreal', 'Quebec', 'Canada', NULL, NULL, NULL, 'Assistant Professor'),
+(3, 'Seraphina', 'Moon', NULL, 'seraphinamoon@mail.mcgill.ca', 'Montreal', 'Quebec', 'Canada', NULL, NULL, NULL, 'Assistant Professor'),
+(4, 'Jackson', 'Stormrider', NULL, 'jacksonstormrider@mail.mcgill.ca', 'Montreal', 'Quebec', 'Canada', NULL, NULL, NULL, 'Professor'),
+(5, 'Isabella', 'Ember', NULL, 'isabellaember@mail.mcgill.ca', 'Montreal', 'Quebec', 'Canada', NULL, NULL, NULL, 'Associate Professor'),
+(6, 'Orion', 'Nightshade', NULL, 'orionnightshade@mail.mcgill.ca', 'Montreal', 'Quebec', 'Canada', NULL, NULL, NULL, 'Professor'),
+(7, 'Sophia', 'Wildwood', NULL, 'sophiawildwood@mail.mcgill.ca', 'Montreal', 'Quebec', 'Canada', NULL, NULL, NULL, 'Professor'),
+(8, 'Lucas', 'Starling', NULL, 'lucasstarling@mail.mcgill.ca', 'Montreal', 'Quebec', 'Canada', NULL, NULL, NULL, 'Professor'),
+(9, 'Celeste', 'Silverleaf', NULL, 'celestesilverleaf@mail.mcgill.ca', 'Montreal', 'Quebec', 'Canada', NULL, NULL, NULL, 'Assistant Professor'),
+(10, 'Elijah', 'Dawnstrider', NULL, 'elijahdawnstrider@mail.mcgill.ca', 'Montreal', 'Quebec', 'Canada', NULL, NULL, NULL, 'Assistant Professor');
+
+
+-- Fix email address format
+UPDATE Students 
+SET stud_email = CONCAT(SUBSTRING(stud_email, 1, LENGTH(stud_email)-2), '.', SUBSTRING(stud_email, LENGTH(stud_email)-1))
+WHERE stud_email LIKE '%mcgillca';
+
+-- Create the Alumni table
+CREATE TABLE Alumni (
+    alum_id INT PRIMARY KEY,
+    alum_fname VARCHAR(255),
+    alum_lname VARCHAR(255),
+    alum_phone VARCHAR(20),
+    alum_email VARCHAR(255),
+    alum_city VARCHAR(255),
+    alum_province VARCHAR(255),
+    alum_country VARCHAR(255),
+    alum_linkedIn_url VARCHAR(255),
+    alum_dob DATE,
+    alum_gender VARCHAR(10),
+  	 alum_companyName text(50), 
+    alum_position ENUM('Associate','Supervisor' ,'Manager','Director') NOT NULL,
+    mmaCo_id INT,
+    FOREIGN KEY (mmaCo_id) REFERENCES MMA_Cohorts(mmaCo_id)
+);
+
+INSERT INTO Alumni (alum_id, alum_fname, alum_lname, alum_phone, alum_email, alum_city, alum_province, alum_country, alum_linkedIn_url, alum_dob, alum_gender, alum_companyName, alum_position, mmaCo_id)
+VALUES
+    (1, 'Sophia', 'Johnson', '123-456-7890', 'sophia.johnson@example.com', 'New York', 'NY', 'USA', 'https://www.linkedin.com/sophiajohnson', '1991-06-15', 'Female', 'ABC Corp', 'Director', 2019),
+    (2, 'William', 'Williams', '987-654-3210', 'william.williams@example.com', 'Los Angeles', 'CA', 'USA', 'https://www.linkedin.com/williamwilliams', '1989-08-20', 'Male', 'XYZ Inc', 'Manager', 2020),
+    (3, 'Olivia', 'Brown', '555-123-4567', 'olivia.brown@example.com', 'Chicago', 'IL', 'USA', 'https://www.linkedin.com/oliviabrown', '1993-01-10', 'Female', 'LMN Ltd', 'Supervisor', 2021),
+    (4, 'Liam', 'Miller', '222-333-4444', 'liam.miller@example.com', 'London', NULL, 'UK', 'https://www.linkedin.com/liammiller', '1992-07-08', 'Male', 'PQR Co', 'Associate', 2019),
+    (5, 'Emma', 'Martinez', '444-555-6666', 'emma.martinez@example.com', 'Toronto', 'ON', 'Canada', 'https://www.linkedin.com/emmamartinez', '1990-11-03', 'Female', 'RST Group', 'Director', 2022),
+    (6, 'Noah', 'Davis', '777-888-9999', 'noah.davis@example.com', 'Sydney', 'NSW', 'Australia', 'https://www.linkedin.com/noahdavis', '1988-04-25', 'Male', 'UVW Solutions', 'Manager', 2020),
+    (7, 'Isabella', 'Wilson', '111-222-3333', 'isabella.wilson@example.com', 'Miami', 'FL', 'USA', 'https://www.linkedin.com/isabellawilson', '1991-12-08', 'Female', 'LMN Ltd', 'Supervisor', 2023),
+    (8, 'James', 'Taylor', '555-666-7777', 'james.taylor@example.com', 'Vancouver', 'BC', 'Canada', 'https://www.linkedin.com/jamestaylor', '1995-06-30', 'Male', 'ABC Corp', 'Associate', 2022),
+    (9, 'Ava', 'Hernandez', '999-888-7777', 'ava.hernandez@example.com', 'Madrid', NULL, 'Spain', 'https://www.linkedin.com/avahernandez', '1989-03-17', 'Female', 'XYZ Inc', 'Manager', 2021),
+    (10, 'Oliver', 'Garcia', '222-111-3333', 'oliver.garcia@example.com', 'Los Angeles', 'CA', 'USA', 'https://www.linkedin.com/olivergarcia', '1992-10-09', 'Male', 'PQR Co', 'Supervisor', 2019),
+    (11, 'Sophia', 'Nguyen', '444-555-8888', 'sophia.nguyen@example.com', 'Seoul', NULL, 'South Korea', 'https://www.linkedin.com/sophianguyen', '1994-01-22', 'Female', 'RST Group', 'Associate', 2023),
+    (12, 'Jackson', 'Lee', '777-999-1111', 'jackson.lee@example.com', 'Mexico City', NULL, 'Mexico', 'https://www.linkedin.com/jacksonlee', '1991-07-18', 'Male', 'LMN Ltd', 'Manager', 2022),
+    (13, 'Emma', 'Harris', '333-222-1111', 'emma.harris@example.com', 'Toronto', 'ON', 'Canada', 'https://www.linkedin.com/emmaharris', '1990-04-29', 'Female', 'ABC Corp', 'Director', 2021),
+    (14, 'Liam', 'Martin', '555-666-7777', 'liam.martin@example.com', 'Sydney', 'NSW', 'Australia', 'https://www.linkedin.com/liammartin', '1988-11-15', 'Male', 'XYZ Inc', 'Supervisor', 2020),
+    (15, 'Olivia', 'Lewis', '777-888-9999', 'olivia.lewis@example.com', 'New York', 'NY', 'USA', 'https://www.linkedin.com/olivialewis', '1993-09-12', 'Female', 'PQR Co', 'Associate', 2019),
+    (16, 'Liam', 'Walker', '222-333-4444', 'liam.walker@example.com', 'Los Angeles', 'CA', 'USA', 'https://www.linkedin.com/liamwalker', '1993-09-14', 'Male', 'RST Group', 'Associate', 2020),
+    (17, 'Olivia', 'Perez', '555-666-7777', 'olivia.perez@example.com', 'Mexico City', NULL, 'Mexico', 'https://www.linkedin.com/oliviaperez', '1988-05-02', 'Female', 'XYZ Inc', 'Manager', 2019),
+    (18, 'Noah', 'Smith', '777-888-9999', 'noah.smith@example.com', 'Sydney', 'NSW', 'Australia', 'https://www.linkedin.com/noahsmith', '1992-08-27', 'Male', 'LMN Ltd', 'Supervisor', 2022),
+    (19, 'Emma', 'Martinez', '333-222-1111', 'emma.martinez@example.com', 'Barcelona', NULL, 'Spain', 'https://www.linkedin.com/emmamartinez', '1990-04-08', 'Female', 'PQR Co', 'Director', 2021),
+    (20, 'Oliver', 'Adams', '555-666-7777', 'oliver.adams@example.com', 'Chicago', 'IL', 'USA', 'https://www.linkedin.com/oliveradams', '1989-10-23', 'Male', 'ABC Corp', 'Associate', 2019),
+    (21, 'James', 'Garcia', '777-888-9999', 'james.garcia@example.com', 'Madrid', NULL, 'Spain', 'https://www.linkedin.com/jamesgarcia', '1994-07-06', 'Male', 'RST Group', 'Manager', 2023),
+    (22, 'Isabella', 'Hernandez', '222-333-4444', 'isabella.hernandez@example.com', 'Los Angeles', 'CA', 'USA', 'https://www.linkedin.com/isabellahernandez', '1991-12-19', 'Female', 'XYZ Inc', 'Supervisor', 2020),
+    (23, 'James', 'Lee', '555-666-7777', 'james.lee@example.com', 'Seoul', NULL, 'South Korea', 'https://www.linkedin.com/jameslee', '1988-03-11', 'Male', 'LMN Ltd', 'Associate', 2019),
+    (24, 'Sophia', 'Johnson', '777-888-9999', 'sophia.johnson@example.com', 'London', NULL, 'UK', 'https://www.linkedin.com/sophiajohnson', '1993-02-01', 'Female', 'PQR Co', 'Manager', 2022),
+    (25, 'Oliver', 'Williams', '333-222-1111', 'oliver.williams@example.com', 'New York', 'NY', 'USA', 'https://www.linkedin.com/oliverwilliams', '1990-09-09', 'Male', 'ABC Corp', 'Director', 2021),
+    (26, 'Emma', 'Garcia', '555-666-7777', 'emma.garcia@example.com', 'Mexico City', NULL, 'Mexico', 'https://www.linkedin.com/emmagarcia', '1989-06-27', 'Female', 'RST Group', 'Supervisor', 2019),
+    (27, 'Noah', 'Anderson', '777-888-9999', 'noah.anderson@example.com', 'Toronto', 'ON', 'Canada', 'https://www.linkedin.com/noahanderson', '1992-01-15', 'Male', 'XYZ Inc', 'Associate', 2023),
+    (28, 'Isabella', 'Rodriguez', '222-333-4444', 'isabella.rodriguez@example.com', 'Los Angeles', 'CA', 'USA', 'https://www.linkedin.com/isabellarodriguez', '1991-08-28', 'Female', 'PQR Co', 'Manager', 2020),
+    (29, 'James', 'Lopez', '555-666-7777', 'james.lopez@example.com', 'Mexico City', NULL, 'Mexico', 'https://www.linkedin.com/jameslopez', '1990-03-04', 'Male', 'LMN Ltd', 'Supervisor', 2019),
+    (30, 'Sophia', 'Smith', '777-888-9999', 'sophia.smith@example.com', 'Sydney', 'NSW', 'Australia', 'https://www.linkedin.com/sophiasmith', '1988-12-12', 'Female', 'ABC Corp', 'Associate', 2023);
+
+
+
+ 
+
+-- Create the Tags table
+CREATE TABLE Tags (
+    tag_id INT PRIMARY KEY,
+    tag_name VARCHAR(255)
+);
+
+-- INSERT INTO Tags (tag_id, thread_id, tag_name)
+INSERT INTO Tags (tag_id, tag_name)
+VALUES
+/*    
+    (1, 1, 'study group'),
+    (2, 2, 'assignment help'),
+    (3, 3, 'coding'),
+    (4, 4, 'team project'),
+    (5, 5, 'career advice'),
+    (6, 6, 'event'),
+    (7, 7, 'networking'),
+    (8, 8, 'exploration'),
+    (9, 9, 'discussion'),
+    (10, 1, 'study'),
+    (11, 2, 'programming'),
+    (12, 3, 'analysis'),
+    (13, 4, 'collaboration'),
+    (14, 5, 'job search'),
+    (15, 6, 'workshop'),
+    (16, 7, 'industry'),
+    (17, 8, 'city'),
+    (18, 9, 'question'),
+    (19, 1, 'help'),
+    (20, 2, 'code review');
+*/
+    (1, 'study group'),
+    (2, 'assignment help'),
+    (3, 'coding'),
+    (4, 'team project'),
+    (5, 'career advice'),
+    (6, 'event'),
+    (7, 'networking'),
+    (8, 'exploration'),
+    (9, 'discussion'),
+    (10, 'study'),
+    (11, 'programming'),
+    (12, 'analysis'),
+    (13, 'collaboration'),
+    (14, 'job search'),
+    (15, 'workshop'),
+    (16, 'industry'),
+    (17, 'city'),
+    (18, 'question'),
+    (19, 'help'),
+    (20, 'code review');
+
+
+ 
+
+-- Create the Posts table
+CREATE TABLE Posts (
+    post_id INT PRIMARY KEY,
+    post_content TEXT,
+    post_timestamp TIMESTAMP,
+    stud_id INT,
+    fact_id INT,
+    alum_id INT,
+    thread_id INT,
+    FOREIGN KEY (stud_id) REFERENCES Students(stud_id),
+    FOREIGN KEY (fact_id) REFERENCES Faculties(fact_id),
+    FOREIGN KEY (alum_id) REFERENCES Alumni(alum_id),
+    FOREIGN KEY (thread_id) REFERENCES Threads(thread_id)
+);
+
+INSERT INTO Posts (post_id, post_content, post_timestamp, stud_id, fact_id, alum_id, thread_id)
+VALUES (1, 'Hi guys, is anyone else confused about the final report deliverable for this or has asked the prof already? Cause she posted 2 conflicting requirements. Is the final report the same as the final presentation?', '2023-08-19 19:31:00', 1, NULL, NULL, 1),
+(2, 'there are two presentations. one is the final report and the other is presentaion for class', '2023-08-19 19:31:00', 2, NULL, NULL, 1),
+(3, 'wait, what? I was under the impression that the two are the same. I thought we have to upload the .pptx and present that in class (8+2 mins)', '2023-08-19 19:32:00', 3, NULL, NULL, 1),
+(4, 'final report is not presetnation but just 20 page ppt let me rephrase', '2023-08-19 19:33:00', 2, NULL, NULL, 1),
+(5, 'Guys, Prof Animesh said that we can make a cheat sheet for the final exam. Everyone will use the same cheat sheet. I created a word document where you can paste SQL queries screenshots/ text you’d like to have on the cheat sheet. Deadline to add content: Aug 20 8pm. I’ll send Animesh our cheat sheet. He’ll likely make edits. Let’s go, class', '2023-08-17 19:33:00', 4, NULL, NULL, 2),
+(6, 'Is there any possibility that we get a deadline extension on the cheat sheet? Thank you!', '2023-08-17 19:35:00', 5, NULL, NULL, 2),
+(7, 'Also, is the cheat sheet one page double sided?', '2023-08-17 19:36:00',6, NULL, NULL, 2),
+(8, 'We make the rules. Joking. Let’s start putting things in. We’ll give it to Animesh and see if he’s ok with it', '2023-08-17 19:37:00', 4, NULL, NULL, 2),
+(9, 'do we need to submit some individual assignment for the accor hotel case study before tuesdays class?', '2023-08-07 19:35:00', 7, NULL, NULL, 5),
+(10, 'Only if that’s the case you want to write an analysis of, the other two options are due Thursday', '2023-08-07 19:36:00', 8, NULL, NULL, 5),
+(11, 'thanks', '2023-08-07 19:37:00', 7, NULL, NULL, 5),
+(12, 'Guys @Ethan Pirso has hosted a website which uses NLP to convert your text (read as SQL  assignment questions) into SQL queries (but you would have to host your database on the cloud to connect to that).
+Here is the website if anyone wants to give it a try - http://www.nl2sql.io/', '2023-08-19 19:37:00', 10, NULL, NULL, 6);
+
+
+
+
+
+
+-- Create the Rates table
+CREATE TABLE Rates (
+    stud_id INT,
+    dept_id VARCHAR(10),
+    course_id INT,
+    rate_score INT,
+    rate_comment TEXT,
+    PRIMARY KEY (stud_id, dept_id, course_id),
+    FOREIGN KEY (stud_id) REFERENCES Students(stud_id),
+    FOREIGN KEY (dept_id, course_id) REFERENCES Courses(dept_id, course_id) -- Corrected foreign key reference
+);
+
+INSERT INTO Rates (stud_id, dept_id, course_id, rate_score, rate_comment) VALUES
+(1, 'STATS', 101, 8, NULL), 
+(2, 'STATS', 101, 9, NULL), 
+(3, 'STATS', 101, 8, NULL), 
+(4, 'STATS', 101, 8, NULL), 
+(1, 'STATS', 102, 6, NULL), 
+(2, 'STATS', 102, 7, NULL), 
+(3, 'STATS', 102, 7, NULL), 
+(4, 'STATS', 102, 6, NULL), 
+(1, 'SWD', 201, 8, NULL), 
+(2, 'SWD', 201, 9, NULL), 
+(3, 'SWD', 201, 9, NULL), 
+(4, 'SWD', 201, 8, NULL), 
+(1, 'SWD', 202, 8, NULL), 
+(2, 'SWD', 202, 9, NULL), 
+(3, 'SWD', 202, 9, NULL), 
+(4, 'SWD', 202, 8, NULL), 
+(1, 'DBMS', 301, 7, NULL), 
+(2, 'DBMS', 301, 8, NULL), 
+(3, 'DBMS', 301, 8, NULL), 
+(4, 'DBMS', 301, 8, NULL), 
+(1, 'DBMS', 302, 7, NULL), 
+(2, 'DBMS', 302, 7, NULL), 
+(3, 'DBMS', 302, 7, NULL), 
+(4, 'DBMS', 302, 8, NULL), 
+(1, 'MGMT', 401, 6, NULL), 
+(2, 'MGMT', 401, 8, NULL), 
+(3, 'MGMT', 401, 8, NULL), 
+(4, 'MGMT', 401, 7, NULL), 
+(1, 'MGMT', 402, 6, NULL), 
+(2, 'MGMT', 402, 7, NULL), 
+(3, 'MGMT', 402, 7, NULL), 
+(4, 'MGMT', 402, 6, NULL),
+(5, 'FIN', 501, 8, NULL), 
+(5, 'AI', 601, 7, NULL), 
+(5, 'BI', 701, 9, NULL),
+(5, 'DBMS', 302, 7, NULL), 
+(5, 'STATS', 101, 7, NULL), 
+(5, 'STATS', 102, 6, NULL), 
+(5, 'SWD', 201, 8, NULL),
+(5, 'SWD', 202, 7, NULL),
+(6, 'FIN', 501, 9, NULL), 
+(6, 'AI', 601, 8, NULL), 
+(6, 'BI', 701, 8, NULL),
+(6, 'DBMS', 302, 8, NULL),
+(6, 'STATS', 101, 7, NULL), 
+(6, 'STATS', 102, 7, NULL), 
+(6, 'SWD', 201, 7, NULL),
+(6, 'SWD', 202, 8, NULL),
+(7, 'DBMS', 301, 8, NULL), 
+(7, 'DBMS', 302, 9, NULL), 
+(7, 'MGMT', 401, 6, NULL),
+(7, 'MGMT', 402, 5, NULL),
+(8, 'DBMS', 301, 7, NULL), 
+(8, 'DBMS', 302, 8, NULL), 
+(8, 'MGMT', 401, 8, NULL),
+(8, 'MGMT', 402, 6, NULL),
+(9, 'STATS', 101, 7, NULL), 
+(9, 'STATS', 102, 7, NULL), 
+(9, 'SWD', 201, 6, NULL),
+(9, 'SWD', 202, 9, NULL),
+(10, 'STATS', 101, 8, NULL), 
+(10, 'STATS', 102, 6, NULL), 
+(10, 'SWD', 201, 7, NULL),
+(10, 'SWD', 202, 7, NULL),
+(11, 'STATS', 101, 8, NULL), 
+(11, 'SWD', 201, 7, NULL), 
+(11, 'DBMS', 301, 9, NULL),  
+(11, 'MGMT', 401, 7, NULL),  
+(12, 'FIN', 501, 9, NULL),  
+(12, 'AI', 601, 8, NULL),  
+(12, 'BI', 701, 8, NULL),   
+(12, 'SWD', 201, 8, NULL),   
+(21, 'STATS', 101, 8, NULL), 
+(21, 'SWD', 201, 7, NULL),   
+(21, 'DBMS', 301, 9, NULL), 
+(21, 'MGMT', 401, 7, NULL),  
+(22, 'FIN', 501, 9, NULL),   
+(22, 'AI', 602, 8, NULL),    
+(22, 'BI', 701, 8, NULL),    
+(22, 'SWD', 201, 8, NULL),
+(30, 'STATS', 101, 7, NULL),
+(30, 'SWD', 201, 8, NULL),
+(30, 'DBMS', 301, 6, NULL),
+(30, 'MGMT', 401, 7, NULL),
+(31, 'STATS', 101, 8, NULL),
+(31, 'SWD', 201, 7, NULL),
+(31, 'DBMS', 301, 6, NULL),
+(31, 'MGMT', 401, 6, NULL),
+(100, 'STATS', 101, 7, NULL),
+(100, 'SWD', 201, 6, NULL),
+(100, 'DBMS', 301, 8, NULL),
+(100, 'MGMT', 401, 7, NULL);
+
+
+
+-- Create the Study table
+CREATE TABLE Study (
+    stud_id INT,
+    dept_id VARCHAR(10),
+    course_id INT,
+    stud_gpa DECIMAL(3, 2),
+  	 sem_year VARCHAR(10),
+    PRIMARY KEY (stud_id, dept_id, course_id),
+    FOREIGN KEY (stud_id) REFERENCES Students(stud_id),
+    FOREIGN KEY (dept_id, course_id) REFERENCES Courses(dept_id, course_id) -- Corrected foreign key reference
+);
+
+-- Inserting values for Study
+INSERT INTO Study (stud_id, dept_id, course_id, stud_gpa, sem_year) VALUES
+    (1, 'STATS', 101, 3.75, '2023F'),
+    (1, 'SWD', 201, 3.32, '2023F'),
+    (1, 'DBMS', 301, 3.23, '2023F'),
+    (1, 'MGMT', 401, 3.15, '2023F'),
+    (2, 'STATS', 101, 3.22, '2023F'),
+    (2, 'SWD', 201, 3.20, '2023F'),
+    (2, 'DBMS', 301, 3.35, '2023F'),
+    (2, 'MGMT', 401, 2.98, '2023F'),
+    (3, 'STATS', 101, 3.23, '2023F'),
+    (3, 'DBMS', 301, 3.90, '2023F'),
+    (4, 'STATS', 101, 3.42, '2023F'),
+    (4, 'MGMT', 401, 3.50, '2023F'),
+    (5, 'STATS', 101, 3.76, '2023F'),
+    (5, 'AI', 601, 3.80, '2023F'),
+    (6, 'STATS', 101, 3.65, '2023F'),
+    (6, 'FIN', 501, 3.65, '2023F'),
+    (7, 'STATS', 101, 3.34, '2023F'),
+    (7, 'BI', 701, 3.40, '2023F'),
+    (8, 'STATS', 101, 3.57, '2023F'),
+    (8, 'SWD', 201, 3.70, '2023F'),
+    (9, 'STATS', 101, 3.88, '2023F'),
+    (9, 'DBMS', 302, 3.25, '2023F'),
+    (10, 'STATS', 101, 3.32, '2023F'),
+    (10, 'SWD', 201, 3.95, '2023F'),
+    (11, 'STATS', 101, 3.05, '2023F'),
+    (11, 'MGMT', 402, 3.60, '2023F'),
+    (12, 'STATS', 101, 3.04, '2023F'),
+    (12, 'AI', 602, 3.30, '2023F'),
+    (13, 'STATS', 101, 2.74, '2023F'),
+    (13, 'BI', 702, 3.85, '2023F'),
+    (14, 'STATS', 101, 2.77, '2023F'),
+    (14, 'DBMS', 303, 3.55, '2023F'),
+    (15, 'STATS', 101, 3.25, '2023F'),
+    (15, 'FIN', 502, 3.75, '2023F'),
+    (16, 'STATS', 101, 2.83, '2023F'),
+    (16, 'SWD', 202, 3.40, '2023F'),
+    (17, 'STATS', 101, 2.78, '2023F'),
+    (17, 'STATS', 103, 3.65, '2023F'),
+    (18, 'STATS', 101, 2.86, '2023F'),
+    (18, 'MGMT', 403, 3.90, '2023F'),
+    (19, 'STATS', 101, 2.94, '2023F'),
+    (19, 'AI', 603, 3.20, '2023F'),
+    (20, 'STATS', 101, 2.81, '2023F'),
+    (20, 'BI', 701, 3.75, '2023F'),
+    (21, 'STATS', 101, 2.86, '2023F'),
+    (21, 'DBMS', 302, 3.45, '2023F'),
+    (22, 'STATS', 101, 2.90, '2023F'),
+    (22, 'SWD', 201, 3.70, '2023F'),
+    (23, 'STATS', 101, 3.25, '2023F'),
+    (23, 'FIN', 503, 3.35, '2023F'),
+    (24, 'STATS', 101, 2.92, '2023F'),
+    (24, 'MGMT', 401, 3.80, '2023F'),
+    (25, 'STATS', 101, 2.78, '2023F'),
+    (25, 'AI', 602, 3.60, '2023F'),
+    (26, 'STATS', 101, 3.44, '2023F'),
+    (26, 'BI', 702, 3.25, '2023F'),
+    (27, 'STATS', 101, 3.56, '2023F'),
+    (27, 'DBMS', 301, 3.95, '2023F'),
+    (28, 'STATS', 101, 3.66, '2023F'),
+    (28, 'SWD', 202, 3.50, '2023F'),
+    (29, 'STATS', 101, 3.78, '2023F'),
+    (29, 'STATS', 102, 3.70, '2023F'),
+    (30, 'STATS', 101, 3.68, '2023F'),
+    (30, 'FIN', 502, 3.85, '2023F'),
+    (31, 'STATS', 103, 3.40, '2023F'),
+    (31, 'SWD', 203, 3.10, '2023F'),
+    (32, 'DBMS', 303, 3.23, '2023F'),
+    (32, 'MGMT', 403, 3.40, '2023F'),
+    (33, 'STATS', 103, 3.51, '2023F'),
+    (33, 'AI', 603, 3.70, '2023F'),
+    (34, 'STATS', 103, 3.02, '2023F'),
+    (34, 'FIN', 503, 3.59, '2023F'),
+    (35, 'STATS', 103, 2.90, '2023F'),
+    (35, 'BI', 702, 3.10, '2023F'),
+    (36, 'SWD', 203, 3.31, '2023F'),
+    (36, 'DBMS', 303, 3.75, '2023F'),
+    (37, 'MGMT', 403, 3.20, '2023F'),
+    (37, 'AI', 603, 3.95, '2023F'),
+    (38, 'STATS', 103, 3.05, '2023F'),
+    (38, 'FIN', 503, 3.60, '2023F'),
+    (39, 'SWD', 203, 3.54, '2023F'),
+    (39, 'BI', 702, 3.25, '2023F'),
+    (40, 'DBMS', 303, 3.68, '2023F'),
+    (40, 'MGMT', 403, 3.90, '2023F'),
+    (41, 'STATS', 103, 3.20, '2023F'),
+    (41, 'SWD', 203, 3.33, '2023F'),
+    (41, 'DBMS', 303, 3.01, '2023F'),
+    (41, 'MGMT', 403, 3.45, '2023F'),
+    (42, 'FIN', 503, 3.15, '2023F'),
+    (42, 'AI', 603, 3.65, '2023F'),
+    (42, 'BI', 702, 3.80, '2023F'),
+    (42, 'SWD', 203, 3.22, '2023F'),
+    (51, 'STATS', 103, 3.40, '2023F'),
+    (51, 'SWD', 203, 3.18, '2023F'),
+    (51, 'DBMS', 303, 3.25, '2023F'),
+    (51, 'MGMT', 403, 3.59, '2023F'),
+    (52, 'FIN', 503, 3.75, '2023F'),
+    (52, 'AI', 603, 3.90, '2023F'),
+    (52, 'BI', 702, 3.87, '2023F'),
+    (52, 'SWD', 203, 3.55, '2023F'),
+    (61, 'STATS', 103, 3.25, '2023F'),
+    (61, 'SWD', 203, 3.78, '2023F'),
+    (61, 'DBMS', 303, 3.40, '2023F'),
+    (61, 'MGMT', 403, 3.60, '2023F'),
+    (62, 'FIN', 503, 3.29, '2023F'),
+    (62, 'AI', 603, 3.85, '2023F'),
+    (62, 'BI', 702, 3.92, '2023F'),
+    (62, 'SWD', 203, 3.50, '2023F'),
+    (71, 'STATS', 103, 3.20, '2023F'),
+    (71, 'SWD', 203, 3.33, '2023F'),
+    (71, 'DBMS', 303, 3.01, '2023F'),
+    (71, 'MGMT', 403, 3.45, '2023F'),
+    (72, 'FIN', 503, 3.15, '2023F'),
+    (72, 'AI', 603, 3.65, '2023F'),
+    (72, 'BI', 702, 3.80, '2023F'),
+    (72, 'SWD', 203, 3.22, '2023F'),
+    (81, 'STATS', 103, 3.40, '2023F'),
+    (81, 'SWD', 203, 3.18, '2023F'),
+    (81, 'DBMS', 303, 3.25, '2023F'),
+    (81, 'MGMT', 403, 3.59, '2023F'),
+    (82, 'FIN', 503, 3.75, '2023F'),
+    (82, 'AI', 603, 3.90, '2023F'),
+    (82, 'BI', 702, 3.87, '2023F'),
+    (82, 'SWD', 203, 3.55, '2023F'),
+    (91, 'STATS', 103, 3.25, '2023F'),
+    (91, 'SWD', 203, 3.78, '2023F'),
+    (91, 'DBMS', 303, 3.40, '2023F'),
+    (91, 'MGMT', 403, 3.60, '2023F'),
+    (92, 'FIN', 503, 3.29, '2023F'),
+    (92, 'AI', 603, 3.85, '2023F'),
+    (92, 'BI', 702, 3.92, '2023F'),
+    (92, 'SWD', 203, 3.50, '2023F');
+
+ 
+
+-- Create the Teach table
+CREATE TABLE Teach (
+    dept_id VARCHAR(10),
+    course_id INT,
+    fact_id INT,
+    sem_year VARCHAR(10),
+    PRIMARY KEY (dept_id, course_id, fact_id, sem_year),
+    FOREIGN KEY (dept_id, course_id) REFERENCES Courses(dept_id, course_id),
+    FOREIGN KEY (fact_id) REFERENCES Faculties(fact_id)
+);
+
+INSERT INTO Teach (dept_id, course_id, fact_id, sem_year)
+VALUES
+        ('STATS', 101, 1, '2023F'),
+    ('STATS', 102, 1, '2023F'),
+    ('SWD', 201, 2, '2023F'),
+    ('SWD', 202, 2, '2023F'),
+    ('DBMS', 301, 3, '2023F'),
+    ('DBMS', 302, 3, '2023F'),
+    ('MGMT', 401, 4, '2023F'),
+    ('MGMT', 402, 4, '2023F'),
+    ('FIN', 501, 5, '2023F'),
+    ('FIN', 502, 5, '2023F'),
+    ('AI', 601, 6, '2023F'),
+    ('AI', 602, 6, '2023F'),
+    ('BI', 701, 7, '2023F'),
+    ('BI', 702, 7, '2023F'),
+    ('STATS', 103, 8, '2023F'),
+    ('SWD', 203, 8, '2023F'),
+    ('DBMS', 303, 9, '2023F'),
+    ('MGMT', 403, 9, '2023F'),
+    ('FIN', 503, 10, '2023F'),
+    ('AI', 603, 10, '2023F');
+
+
+
+
+
+
+-- Create the Offered_by table
+CREATE TABLE Offered_by (
+    dept_id VARCHAR(10),
+    course_id INT,
+    sem_year VARCHAR(10),
+    PRIMARY KEY (dept_id, course_id, sem_year),
+    FOREIGN KEY (dept_id, course_id) REFERENCES Courses(dept_id, course_id) -- Corrected foreign key reference
+);
+
+INSERT INTO Offered_by (dept_id, course_id, sem_year)
+VALUES
+     ('STATS', 101, '2023F'),
+    ('STATS', 102, '2023F'),
+    ('SWD', 201, '2023F'),
+    ('SWD', 202, '2023F'),
+    ('DBMS', 301, '2023F'),
+    ('DBMS', 302, '2023F'),
+    ('MGMT', 401, '2023F'),
+    ('MGMT', 402, '2023F'),
+    ('FIN', 501, '2023F'),
+    ('FIN', 502, '2023F'),
+    ('AI', 601, '2023F'),
+    ('AI', 602, '2023F'),
+    ('BI', 701, '2023F'),
+    ('BI', 702, '2023F'),
+    ('STATS', 103, '2023F'),
+    ('SWD', 203, '2023F'),
+    ('DBMS', 303, '2023F'),
+    ('MGMT', 403, '2023F'),
+    ('FIN', 503, '2023F'),
+    ('AI', 603, '2023F'),
+    ('STATS', 101, '2022F'),
+    ('SWD', 201, '2022F'),
+    ('DBMS', 301, '2022F'),
+    ('MGMT', 401, '2022F'),
+    ('FIN', 501, '2022F'),
+    ('AI', 601, '2022F'),
+    ('BI', 701, '2022F'),
+    ('STATS', 102, '2022F'),
+    ('SWD', 202, '2022F'),
+    ('DBMS', 302, '2022F');
+
+ 
+
+-- Create the Belongs_to table
+CREATE TABLE Belongs_to (
+    fact_id INT,
+    dept_id VARCHAR(10),
+    PRIMARY KEY (fact_id, dept_id),
+    FOREIGN KEY (fact_id) REFERENCES Faculties(fact_id),
+    FOREIGN KEY (dept_id) REFERENCES Departments(dept_id)
+);
+
+INSERT INTO Belongs_to (fact_id, dept_id)
+VALUES
+    (1, 'STATS'),
+    (2, 'SWD'),
+    (3, 'DBMS'),
+    (4, 'MGMT'),
+    (5, 'FIN'),
+    (6, 'AI'),
+    (7, 'BI'),
+    (8, 'STATS'),
+    (9, 'SWD'),
+    (10, 'DBMS');
+
+ 
+
+-- Create the Fact_join table
+CREATE TABLE Fact_join (
+    fact_id INT,
+    thread_id INT,
+    fact_join_date_time TIMESTAMP,
+    PRIMARY KEY (fact_id, thread_id),
+    FOREIGN KEY (fact_id) REFERENCES Faculties(fact_id),
+    FOREIGN KEY (thread_id) REFERENCES Threads(thread_id)
+);
+
+INSERT INTO Fact_join (fact_id, thread_id, fact_join_date_time)
+VALUES
+    (1, 1, '2023-07-19 10:30:00'),
+    (1, 2, '2023-07-19 10:31:00'),
+    (2, 3, '2023-07-19 10:32:00'),
+    (2, 4, '2023-07-19 10:33:00'),
+    (3, 5, '2023-07-19 10:34:00'),
+    (3, 6, '2023-07-10 10:30:00'),
+    (4, 7, '2023-07-10 10:34:00'),
+    (4, 8, '2023-07-10 10:31:00'),
+    (5, 9, '2023-07-12 10:31:00'),
+    (6, 1, '2023-07-20 10:35:00'),
+    (7, 2, '2023-07-21 10:36:00'),
+    (8, 3, '2023-07-22 10:37:00'),
+    (9, 4, '2023-07-23 10:38:00'),
+    (10, 5, '2023-07-24 10:39:00'),
+    (1, 6, '2023-07-25 10:40:00');
+
+ 
+
+-- Create the Alum_join table
+CREATE TABLE Alum_join (
+    alum_id INT,
+    thread_id INT,
+    alum_join_date_time TIMESTAMP,
+    PRIMARY KEY (alum_id, thread_id),
+    FOREIGN KEY (alum_id) REFERENCES Alumni(alum_id),
+    FOREIGN KEY (thread_id) REFERENCES Threads(thread_id)
+);
+
+INSERT INTO Alum_join (alum_id, thread_id, alum_join_date_time)
+VALUES
+    (1, 1, '2023-07-19 10:30:00'),
+    (2, 2, '2023-07-19 10:31:00'),
+    (3, 3, '2023-07-19 10:32:00'),
+    (4, 4, '2023-07-19 10:33:00'),
+    (5, 5, '2023-07-19 10:34:00'),
+    (6, 6, '2023-07-10 10:30:00'),
+    (7, 7, '2023-07-10 10:34:00'),
+    (8, 8, '2023-07-10 10:31:00'),
+    (9, 9, '2023-07-12 10:31:00'),
+    (10, 1, '2023-07-20 10:35:00'),
+    (11, 2, '2023-07-21 10:36:00'),
+    (12, 3, '2023-07-22 10:37:00'),
+    (13, 4, '2023-07-23 10:38:00'),
+    (14, 5, '2023-07-24 10:39:00'),
+    (15, 6, '2023-07-25 10:40:00'),
+    (16, 7, '2023-07-26 10:41:00'),
+    (17, 8, '2023-07-27 10:42:00'),
+    (18, 9, '2023-07-28 10:43:00'),
+    (19, 10, '2023-07-29 10:44:00'),
+    (20, 11, '2023-07-30 10:45:00'),
+    (21, 12, '2023-07-31 10:46:00'),
+    (22, 13, '2023-08-01 10:47:00'),
+    (23, 14, '2023-08-02 10:48:00'),
+    (24, 15, '2023-08-03 10:49:00'),
+    (25, 16, '2023-08-04 10:50:00'),
+    (26, 17, '2023-08-05 10:51:00'),
+    (27, 18, '2023-08-06 10:52:00'),
+    (28, 19, '2023-08-07 10:53:00'),
+    (16, 11, '2023-08-08 10:54:00'),
+    (17, 12, '2023-08-09 10:55:00'),
+    (18, 13, '2023-08-10 10:56:00'),
+    (19, 14, '2023-08-11 10:57:00'),
+    (20, 15, '2023-08-12 10:58:00'),
+    (21, 16, '2023-08-13 10:59:00'),
+    (22, 17, '2023-08-14 11:00:00'),
+    (23, 18, '2023-08-15 11:01:00'),
+    (24, 19, '2023-08-16 11:02:00'),
+    (25, 11, '2023-08-17 11:03:00'),
+    (26, 12, '2023-08-18 11:04:00'),
+    (27, 13, '2023-08-19 11:05:00'),
+    (28, 14, '2023-08-20 11:06:00'),
+    (29, 15, '2023-08-21 11:07:00'),
+    (17, 16, '2023-08-22 11:08:00'),
+    (18, 17, '2023-08-23 11:09:00'),
+    (19, 18, '2023-08-24 11:10:00'),
+    (20, 19, '2023-08-25 11:11:00'),
+    (21, 11, '2023-08-26 11:12:00'),
+    (22, 12, '2023-08-27 11:13:00'),
+    (23, 13, '2023-08-28 11:14:00'),
+    (24, 14, '2023-08-29 11:15:00'),
+    (25, 15, '2023-08-30 11:16:00'),
+    (26, 16, '2023-08-31 11:17:00'),
+    (27, 17, '2023-09-01 11:18:00'),
+    (28, 18, '2023-09-02 11:19:00'),
+    (29, 19, '2023-09-03 11:20:00');
+ 
+
+-- Create the Stud_join table
+CREATE TABLE Stud_join (
+    stud_id INT,
+    thread_id INT,
+    stud_join_date_time TIMESTAMP,
+    PRIMARY KEY (stud_id, thread_id),
+    FOREIGN KEY (stud_id) REFERENCES Students(stud_id),
+    FOREIGN KEY (thread_id) REFERENCES Threads(thread_id)
+);
+
+INSERT INTO Stud_join(stud_id, thread_id, stud_join_date_time) VALUES
+(1,1,'2023-07-19 12:30:00'),(1,2,'2023-07-19 12:30:00'),
+(1,3,'2023-07-19 12:30:00'),(1,4,'2023-07-19 12:30:00'),
+(1,5,'2023-07-19 12:30:00'),(1,9,'2023-07-19 12:30:00'),
+(2,1,'2023-07-19 12:31:00'),(2,2,'2023-07-19 12:31:00'),
+(2,3,'2023-07-19 12:31:00'),(2,4,'2023-07-19 12:31:00'),
+(2,5,'2023-07-19 12:31:00'),(2,9,'2023-07-19 12:31:00'),
+(3,1,'2023-07-19 12:32:00'),(3,2,'2023-07-19 12:32:00'),
+(3,3,'2023-07-19 12:32:00'),(3,4,'2023-07-19 12:32:00'),
+(3,5,'2023-07-19 12:32:00'),(3,9,'2023-07-19 12:32:00'),
+(4,1,'2023-07-19 12:33:00'),(4,2,'2023-07-19 12:33:00'),
+(4,3,'2023-07-19 12:33:00'),(4,4,'2023-07-19 12:33:00'),
+(4,5,'2023-07-19 12:33:00'),(4,9,'2023-07-19 12:33:00'),
+(5,1,'2023-07-19 12:34:00'),(5,2,'2023-07-19 12:34:00'),
+(5,3,'2023-07-19 12:34:00'),(5,4,'2023-07-19 12:34:00'),
+(5,5,'2023-07-19 12:34:00'),(5,9,'2023-07-19 12:34:00'),
+(6,1,'2023-07-19 12:35:00'),(6,2,'2023-07-19 12:35:00'),
+(6,3,'2023-07-19 12:35:00'),(6,4,'2023-07-19 12:35:00'),
+(6,5,'2023-07-19 12:35:00'),(6,6,'2023-07-19 12:35:00'),
+(7,1,'2023-07-19 12:36:00'),(7,2,'2023-07-19 12:36:00'),
+(7,3,'2023-07-19 12:36:00'),(7,4,'2023-07-19 12:36:00'),
+(7,5,'2023-07-19 12:36:00'),(7,6,'2023-07-19 12:36:00'),
+(8,1,'2023-07-19 12:37:00'),(8,2,'2023-07-19 12:37:00'),
+(8,3,'2023-07-19 12:37:00'),(8,4,'2023-07-19 12:37:00'),
+(8,5,'2023-07-19 12:37:00'),(8,6,'2023-07-19 12:37:00'),
+(9,1,'2023-07-19 12:38:00'),(9,2,'2023-07-19 12:38:00'),
+(9,3,'2023-07-19 12:38:00'),(9,4,'2023-07-19 12:38:00'),
+(9,5,'2023-07-19 12:38:00'),(9,6,'2023-07-19 12:38:00'),
+(10,1,'2023-07-19 12:39:00'),(10,2,'2023-07-19 12:39:00'),
+(10,3,'2023-07-19 12:39:00'),(10,4,'2023-07-19 12:39:00'),
+(10,5,'2023-07-19 12:39:00'),(10,6,'2023-07-19 12:39:00');
+
+
+-- Create the Worked_in table
+CREATE TABLE Worked_in (
+    industry_id INT,
+    alum_id INT,
+    PRIMARY KEY (industry_id, alum_id),
+    FOREIGN KEY (industry_id) REFERENCES Industries(industry_id),
+    FOREIGN KEY (alum_id) REFERENCES Alumni(alum_id)
+);
+
+INSERT INTO Worked_in (industry_id, alum_id)
+VALUES
+    (1, 1),
+    (2, 2),
+    (3, 3),
+    (4, 4),
+    (5, 5),
+    (6, 6),
+    (7, 7),
+    (8, 8),
+    (9, 9),
+    (10, 10),
+    (1, 11),
+    (2, 12),
+    (3, 13),
+    (4, 14),
+    (5, 15),
+    (6, 16),
+    (7, 17),
+    (8, 18),
+    (9, 19),
+    (10, 20),
+    (1, 21),
+    (2, 22),
+    (3, 23),
+    (4, 24),
+    (5, 25),
+    (6, 26),
+    (7, 27),
+    (8, 28),
+    (9, 29),
+    (10, 30);
+
+
+-- Create the Interested_in table
+CREATE TABLE Interested_in (
+    industry_id INT,
+    stud_id INT,
+    PRIMARY KEY (industry_id, stud_id),
+    FOREIGN KEY (industry_id) REFERENCES Industries(industry_id),
+    FOREIGN KEY (stud_id) REFERENCES Students(stud_id)
+);
+
+INSERT INTO Interested_in (industry_id, stud_id)
+VALUES
+    (1, 1),
+    (2, 2),
+    (3, 3),
+    (4, 4),
+    (5, 5),
+    (6, 6),
+    (7, 7),
+    (8, 8),
+    (9, 9),
+    (10, 10),
+    (1, 11),
+    (2, 12),
+    (3, 13),
+    (4, 14),
+    (5, 15),
+    (6, 16),
+    (7, 17),
+    (8, 18),
+    (9, 19),
+    (10, 20),
+    (1, 21),
+    (2, 22),
+    (3, 23),
+    (4, 24),
+    (5, 25),
+    (6, 26),
+    (7, 27),
+    (8, 28),
+    (9, 29),
+    (10, 30),
+    (1, 31),
+    (2, 32),
+    (3, 33),
+    (4, 34),
+    (5, 35),
+    (6, 36),
+    (7, 37),
+    (8, 38),
+    (9, 39),
+    (10, 40);
+
+
+-- Create the Categorize_by table
+CREATE TABLE Categorize_by (
+    thread_id INT,
+    tag_id INT,
+    PRIMARY KEY (thread_id, tag_id),
+    FOREIGN KEY (thread_id) REFERENCES Threads(thread_id),
+    FOREIGN KEY (tag_id) REFERENCES Tags(tag_id)
+);
+
+-- Insert data into the Categorize_by table
+INSERT INTO Categorize_by (thread_id, tag_id)
+VALUES
+    (1, 1), (1, 10), (1, 19),
+    (2, 2), (2, 11), (2, 20),
+    (3, 3), (3, 12), (3, 18),
+    (4, 4), (4, 13), (4, 17),
+    (5, 5), (5, 14), (5, 16),
+    (6, 6), (6, 15), (6, 19),
+    (7, 7), (7, 16), (7, 18),
+    (8, 8), (8, 17), (8, 20),
+    (9, 9), (9, 18), (9, 20),
+    (1, 11), (2, 12), (3, 14);
+
+-- Insert cohorts
+INSERT INTO MMA_Cohorts (mmaCo_id) VALUES (1), (2);
+
+-- Insert students
+INSERT INTO Students (stud_id, stud_fname, stud_lname, stud_phone, stud_email, stud_city, stud_province, stud_country, stud_linkedIn_url, stud_dob, stud_gender, mmaCo_id)
+VALUES
+    (999, 'Joe', 'Doe', '123-456-7890', 'john.doe@example.com', 'City1', 'Province1', 'Country1', 'https://linkedin.com/johndoe', '2000-01-01', 'Male', 1),
+    (998, 'Jane', 'dei', '987-654-3210', 'jane.smith@example.com', 'City2', 'Province2', 'Country2', 'https://linkedin.com/janesmith', '2000-02-02', 'Female', 2),
+    (997, 'Jae', 'dei', '987-654-3210', 'jane.smith@example.com', 'City2', 'Province2', 'Country2', 'https://linkedin.com/janesmith', '2000-02-02', 'Female', 2),
+    (996, 'Jane', 'dei', '987-654-3210', 'jane.smith@example.com', 'City2', 'Province2', 'Country2', 'https://linkedin.com/janesmith', '2000-02-02', 'Female', 2),
+    (995, 'Jane', 'dei', '987-654-3210', 'jane.smith@example.com', 'City2', 'Province2', 'Country2', 'https://linkedin.com/janesmith', '2000-02-02', 'Female', 2);
+
+-- Insert study information
+INSERT INTO Study (stud_id, dept_id, course_id, stud_gpa, sem_year)
+VALUES
+    (999, 'DBMS', 301, 0, '2023F'),
+    (998, 'DBMS', 302, 0, '2023F'),
+    (997, 'DBMS', 302, 0, '2023F'),
+    (996, 'DBMS', 302, 0, '2023F'),
+    (995, 'DBMS', 302, 0, '2023F');
+
+-- Insert interested industries
+INSERT INTO Interested_in (industry_id, stud_id)
+VALUES
+    (1, 999),
+    (2, 999),
+    (2, 998),
+    (2, 997),
+    (2, 996),
+    (2, 995);
+
+ 
+
+
+-- Finalized Questions and Queries:
+
+
+-- Q1：Find the professor id with the lowest average teaching grade and the professor id with the highest average teaching score. (teaching score: average of all the course rating scores that teach by one professor)
+
+-- lowest-
+SELECT fact_id, AVG(rate_score)
+FROM Rates r, Courses c, Teach t
+WHERE r.dept_id=c.dept_id AND r.course_id=c.course_id AND t.dept_id=c.dept_id AND t.course_id=c.course_id
+GROUP BY fact_id
+ORDER BY AVG(rate_score)
+LIMIT 1;
+
+-- highest-
+SELECT fact_id, AVG(rate_score)
+FROM Rates r, Courses c, Teach t
+WHERE r.dept_id=c.dept_id AND r.course_id=c.course_id AND t.dept_id=c.dept_id AND t.course_id=c.course_id
+GROUP BY fact_id
+ORDER BY AVG(rate_score) DESC
+LIMIT 1;
+
+
+
+
+
+-- Q2: Find the student who makes the most posts in the INSY-660 thread.
+
+SELECT S.stud_fname, S.stud_lname, COUNT(*) AS num_post
+FROM Threads T, Posts P, Students S
+WHERE T.thread_id=P.thread_id AND S.stud_id=P.stud_id AND T.thread_title='INSY-660'
+GROUP BY P.stud_id
+ORDER BY num_post DESC
+LIMIT 1;
+
+
+-- Q3: Identify the average grade for the students who have joined the study thread is higher than the students who have not joined the study thread.
+
+SELECT AVG(stud_gpa) AS avg_gpa_in_study_thread
+FROM Students ss, Stud_join sj, Threads t, Study sy
+WHERE ss.stud_id=sj.stud_id AND sj.thread_id=t.thread_id AND ss.stud_id=sy.stud_id AND t.thread_title='study';
+
+SELECT AVG(stud_gpa) AS avg_gpa_notin_study_thread
+FROM Study
+WHERE stud_id NOT IN (SELECT DISTINCT ss.stud_id
+FROM Students ss, Stud_join sj, Threads t, Study sy
+WHERE ss.stud_id=sj.stud_id AND sj.thread_id=t.thread_id AND ss.stud_id=sy.stud_id AND t.thread_title='study');
+
+
+
+
+-- Q4. List the 3 threads with the most recent activity.
+
+SELECT thread_title, MAX(post_timestamp) AS latest_activity
+FROM Threads T JOIN Posts P ON P.thread_id=T.thread_id
+GROUP BY T.thread_id
+ORDER BY latest_activity DESC
+LIMIT 3;
+
+
+
+
+
+
+
+-- Q5 List the top five companies with the most alumni in each industry
+
+SELECT Industries.industry_name AS Industry_Name, Alumni.alum_companyname AS Company_Name, COUNT(DISTINCT Alumni.alum_id) AS Alumni_Count
+        FROM Industries
+        JOIN Worked_in ON Industries.industry_id = Worked_in.industry_id
+        JOIN Alumni ON Worked_in.alum_id = Alumni.alum_id
+        GROUP BY Industries.industry_name, Alumni.alum_companyname
+        HAVING Alumni_Count >= 2
+        ORDER BY Industries.industry_name, Alumni_Count DESC
+        LIMIT 5;
+
+
+
+-- Q6 List the companies that have hired alumni from at least two different cohorts
+
+SELECT alum_companyname AS Company, COUNT(DISTINCT mmaCo_id) AS Alumni_Hired
+        FROM Alumni
+        GROUP BY alum_companyname
+        HAVING Alumni_Hired >= 2;
+
+
+
+
+
+
+-- Q7: List the alumni who have joined threads related to their current industry
+
+SELECT CONCAT(Alumni.alum_fname, ' ', Alumni.alum_lname) AS Alumni_Name,
+               Alumni.alum_companyname AS Company_Name,
+               Industries.industry_name AS Industry,
+               Threads.thread_title AS Thread_Title
+        FROM Alumni
+        JOIN Worked_in ON Alumni.alum_id = Worked_in.alum_id
+        JOIN Industries ON Worked_in.industry_id = Industries.industry_id
+        JOIN Alum_join ON Alumni.alum_id = Alum_join.alum_id
+        JOIN Threads ON Alum_join.thread_id = Threads.thread_id
+        ORDER BY Alumni_Name;
+
+
+
+
+-- Q8 Identify the most popular course in each department and list the course average grade.
+
+SELECT
+    Departments.dept_name AS Department,
+    Courses.course_name AS Course_Name,
+    CONCAT(Courses.dept_id, Courses.course_id) AS Course_Number,
+    COUNT(Study.stud_id) AS Enrollment_Count,
+    AVG(Study.stud_gpa) AS Average_Grade
+FROM Study
+JOIN Courses ON Study.dept_id = Courses.dept_id AND Study.course_id = Courses.course_id
+JOIN Departments ON Study.dept_id = Departments.dept_id
+JOIN (
+    SELECT dept_id, course_id
+    FROM Study
+    GROUP BY dept_id, course_id
+    HAVING COUNT(*) = (
+        SELECT MAX(enrollment_count)
+        FROM (
+            SELECT dept_id, course_id, COUNT(*) AS enrollment_count
+            FROM Study
+            GROUP BY dept_id, course_id
+        ) AS CoursePop
+        WHERE CoursePop.dept_id = Study.dept_id
+    )
+) AS MaxEnrollment ON Study.dept_id = MaxEnrollment.dept_id AND Study.course_id = MaxEnrollment.course_id
+GROUP BY Department, Course_Number, Course_Name
+ORDER BY Department;
+
+
+
+-- Q9 Find the course with the highest average in each department and show the name of the professor and TA.
+
+SELECT dept_id, course_id, sem_year, fact_fname, fact_lname
+            FROM (
+                SELECT s.dept_id, s.course_id, s.sem_year, s.average_grade,
+                       @rank := IF(@prev_dept = s.dept_id, @rank + 1, 1) AS 'highest',
+                       @prev_dept := s.dept_id,
+                       p.fact_fname, p.fact_lname
+                FROM (
+                    SELECT dept_id, course_id, sem_year, AVG(stud_gpa) AS average_grade 
+                    FROM Study
+                    GROUP BY dept_id, course_id, sem_year
+                    ORDER BY dept_id, average_grade DESC
+                ) s
+                LEFT JOIN (
+                    SELECT t.dept_id, t.course_id, t.sem_year, f.fact_fname, f.fact_lname 
+                    FROM Teach t
+                    LEFT JOIN Faculties f USING(fact_id)
+                ) p ON (p.dept_id = s.dept_id) AND (p.course_id = s.course_id) AND (p.sem_year = s.sem_year),
+                (SELECT @rank := 0, @prev_dept := NULL) r
+            ) gg
+            WHERE highest = 1;
+
+
+
+-- Q10: Identify the tread that is most consistently active. (the time interval between the first person joining and the last person joining)
+
+SELECT thread_id, thread_title, time_interval FROM (
+    SELECT thread_id, thread_title, TIMESTAMPDIFF(DAY, MIN(join_time), MAX(join_time)) AS 'time_interval'
+    FROM (
+        SELECT thread_id, thread_title, fact_join_date_time AS 'join_time', fact_id AS 'member'
+        FROM Threads
+        LEFT JOIN Fact_join USING(thread_id)
+        UNION ALL
+        SELECT thread_id, thread_title, alum_join_date_time AS 'join_time', alum_id AS 'member'
+        FROM Threads
+        LEFT JOIN Alum_join USING(thread_id)
+        UNION ALL
+        SELECT thread_id, thread_title, stud_join_date_time AS 'join_time', stud_id AS 'member'
+        FROM Threads
+        LEFT JOIN Stud_join USING(thread_id)
+    ) a
+    GROUP BY thread_id, thread_title
+) f
+WHERE time_interval = (
+    SELECT MAX(time_interval)
+    FROM (
+        SELECT thread_id, thread_title, TIMESTAMPDIFF(DAY, MIN(join_time), MAX(join_time)) AS 'time_interval'
+        FROM (
+            SELECT thread_id, thread_title, fact_join_date_time AS 'join_time', fact_id AS 'member'
+            FROM Threads
+            LEFT JOIN Fact_join USING(thread_id)
+            UNION ALL
+            SELECT thread_id, thread_title, alum_join_date_time AS 'join_time', alum_id AS 'member'
+            FROM Threads
+            LEFT JOIN Alum_join USING(thread_id)
+            UNION ALL
+            SELECT thread_id, thread_title, stud_join_date_time AS 'join_time', stud_id AS 'member'
+            FROM Threads
+            LEFT JOIN Stud_join USING(thread_id)
+        ) a
+        GROUP BY thread_id, thread_title
+    ) f2
+);
+
+
+
+-- Q11 Display the courses where the average GPA of students is above 3.3.
+
+SELECT c.dept_id, c.course_id, c.course_name, s.sem_year, ROUND(AVG(s.stud_gpa), 2) AS 'average_grade'
+        FROM Courses c
+        LEFT JOIN Study s ON (c.dept_id = s.dept_id) AND (c.course_id = s.course_id)
+        GROUP BY c.dept_id, c.course_id, c.course_name, s.sem_year
+        HAVING average_grade >= 3.3
+        ORDER BY average_grade DESC;
+
+
+
+-- Q12: Identify the students who have the most connections.
+
+SELECT stud_id, stud_fname, stud_lname, number_of_connect FROM (
+    SELECT stud_id, COUNT(DISTINCT fact_id) + COUNT(DISTINCT alum_id) AS 'number_of_connect'
+    FROM Stud_join
+    LEFT JOIN Alum_join USING(thread_id)
+    LEFT JOIN Fact_join USING(thread_id)
+    GROUP BY stud_id
+) c
+LEFT JOIN Students USING(stud_id)
+WHERE number_of_connect = (
+    SELECT MAX(number_of_connect)
+    FROM (
+        SELECT stud_id, COUNT(DISTINCT fact_id) + COUNT(DISTINCT alum_id) AS 'number_of_connect'
+        FROM Stud_join
+        LEFT JOIN Alum_join USING(thread_id)
+        LEFT JOIN Fact_join USING(thread_id)
+        GROUP BY stud_id
+    ) c1
+);
+
+
+
+
+
+
+
+
+-- Q13: Determine the most common industry interest among students with GPA >= 3.5 in each course.
+
+SELECT 
+    industry_name,
+    CONCAT(CAST(ROUND(proportion * 100, 2) AS CHAR), '%') AS ProportionOfHighGPAStudents,
+    ROUND(AvgGPA, 2) AS AvgGPA
+FROM (
+    SELECT 
+        Industries.industry_name,
+        COUNT(DISTINCT h.stud_id) * 1.0 / (
+            SELECT COUNT(DISTINCT Students.stud_id)
+            FROM Students
+            JOIN Study ON Students.stud_id = Study.stud_id
+            WHERE Study.stud_gpa IS NOT NULL AND Study.stud_gpa >= 3.5
+        ) AS proportion,
+        AVG(h.max_gpa) AS AvgGPA
+    FROM (
+        SELECT 
+            Students.stud_id AS stud_id,
+            Students.stud_fname,
+            Students.stud_lname,
+            ROUND(MAX(Study.stud_gpa), 2) AS max_gpa
+        FROM 
+            Students
+        JOIN 
+            Study ON Students.stud_id = Study.stud_id
+        WHERE 
+            Study.stud_gpa IS NOT NULL AND Study.stud_gpa >= 3.5
+        GROUP BY 
+            Students.stud_id,
+            Students.stud_fname,
+            Students.stud_lname
+    ) AS h
+    LEFT JOIN Interested_in ON Interested_in.stud_id = h.stud_id
+    LEFT JOIN Industries ON Interested_in.industry_id = Industries.industry_id
+    WHERE
+        Industries.industry_name IS NOT NULL
+    GROUP BY Industries.industry_name
+) AS InnerQuery
+ORDER BY 
+    InnerQuery.proportion DESC,
+    InnerQuery.industry_name ASC,
+    InnerQuery.AvgGPA DESC;
+
+
+
+
+
+
+-- Q14: Find the top three courses with the highest rate scores in each department.
+
+SELECT 
+        d.dept_id,
+        d.dept_name,
+        r.course_id,
+        ROUND(r.avg_rate_score, 2) AS rounded_avg_rate_score
+    FROM (
+        SELECT 
+            dept_id, 
+            course_id,
+            AVG(rate_score) AS avg_rate_score,
+            (
+                SELECT COUNT(DISTINCT r1.course_id)
+                FROM Rates r1
+                WHERE r1.dept_id = r.dept_id AND AVG(r.rate_score) <= (
+                    SELECT AVG(r2.rate_score)
+                    FROM Rates r2
+                    WHERE r2.dept_id = r1.dept_id AND r2.course_id = r1.course_id
+                )
+            ) AS ranking
+        FROM Rates r
+        GROUP BY dept_id, course_id
+    ) r
+    JOIN Departments d ON r.dept_id = d.dept_id
+    WHERE r.ranking <= 3
+    ORDER BY d.dept_id, r.avg_rate_score DESC;
+
+
+
+-- Q15: Display the average GPA for each course each semester.
+
+SELECT 
+    c.course_name,
+    s.sem_year,
+    ROUND(AVG(s.stud_gpa), 2) AS avg_gpa,
+    MAX(s.stud_gpa) AS max_gpa,
+    MIN(s.stud_gpa) AS min_gpa
+FROM 
+    Study s
+JOIN 
+    Courses c ON s.dept_id = c.dept_id AND s.course_id = c.course_id
+GROUP BY 
+    c.course_name, s.sem_year
+ORDER BY 
+    c.course_name, s.sem_year;
+
+
+-- Q16: compare the average GPA for each course between 2022F and 2023F
+
+SELECT 
+    s.dept_id, 
+    c.course_id, 
+    c.course_name,
+    COALESCE(ROUND(AVG(CASE WHEN o.sem_year = '2022F' THEN s.stud_gpa END), 2), 0) AS avg_gpa_2022F,
+    COALESCE(ROUND(AVG(CASE WHEN o.sem_year = '2023F' THEN s.stud_gpa END), 2), 0) AS avg_gpa_2023F
+FROM 
+    Study s
+JOIN 
+    Courses c ON s.dept_id = c.dept_id AND s.course_id = c.course_id
+JOIN
+    Offered_by o ON s.dept_id = o.dept_id AND s.course_id = o.course_id
+GROUP BY 
+    s.dept_id, 
+    c.course_id,
+    c.course_name
+HAVING
+            avg_gpa_2022F > 0 
+            AND 
+            avg_gpa_2023F > 0
+ORDER BY 
+    s.dept_id, 
+    c.course_id;
+
+
+
+
+
+
+
+-- Q17: Find threads and posts related to “study” tag names ordered by date.
+SELECT DISTINCT T.thread_id, T.thread_title, P.post_id, P.post_content, P.post_timestamp
+FROM Threads AS T
+JOIN Categorize_by AS CB ON T.thread_id = CB.thread_id
+JOIN Tags AS TG ON CB.tag_id = TG.tag_id
+JOIN Posts AS P ON T.thread_id = P.thread_id
+WHERE TG.tag_name LIKE '%study%'
+ORDER BY P.post_timestamp ASC;
+
+
+
+
+-- Q18: Query to compare the average gpa of students who posted in the threads with students who didn't post.
+
+SELECT 
+    X.AvgGpa_StudsWithNoPost,
+    Y.AvgGpa_StudsWithPost
+FROM
+    (SELECT AVG(ST.stud_gpa) as AvgGpa_StudsWithNoPost
+    FROM Students AS S
+    LEFT JOIN Posts AS P ON S.stud_id = P.stud_id
+	LEFT JOIN Threads AS T ON P.thread_id = T.thread_id
+	LEFT JOIN Study AS ST ON S.stud_id = ST.stud_id
+    WHERE P.stud_id IS NULL) AS X,
+    (SELECT AVG(ST.stud_gpa) as AvgGpa_StudsWithPost
+    FROM Students AS S
+    LEFT JOIN Posts AS P ON S.stud_id = P.stud_id
+	LEFT JOIN Threads AS T ON P.thread_id = T.thread_id
+	LEFT JOIN Study AS ST ON S.stud_id = ST.stud_id) AS Y;
+
+
+
+
+
+-- Q19: Write query to list all courses and their respective average ratings and students average gpas with standard deviation of GPAs, number of total posts made by students of that course.
+
+SELECT
+    C.course_id,
+    C.course_name,
+    ROUND(AVG(R.rate_score), 2) AS average_rating,
+    ROUND(AVG(ST.stud_gpa), 2) AS average_gpa,
+    ROUND(STDDEV(ST.stud_gpa), 2) AS gpa_standard_deviation,
+    COUNT(P.stud_id) AS total_posts
+FROM Courses AS C
+LEFT JOIN Rates AS R ON C.course_id = R.course_id
+LEFT JOIN Study AS ST ON C.course_id = ST.course_id
+LEFT JOIN Posts AS P ON ST.stud_id = P.stud_id
+GROUP BY C.course_id, C.course_name
+HAVING 
+    average_rating IS NOT NULL 
+AND average_gpa IS NOT NULL 
+AND gpa_standard_deviation IS NOT NULL 
+AND total_posts IS NOT NULL;
+
+-- Q20: Display the name of top student by course and show gpa also.
+SELECT
+    C.course_id,
+    C.course_name,
+    ST.sem_year,
+    S.stud_fname,
+    S.stud_lname,
+    ST.stud_gpa
+FROM Courses AS C
+JOIN Study AS ST ON C.course_id = ST.course_id
+JOIN Students AS S ON ST.stud_id = S.stud_id
+WHERE (ST.course_id, ST.stud_gpa) IN (
+    SELECT course_id, MAX(stud_gpa) 
+    FROM Study 
+    GROUP BY course_id
+)
+ORDER BY C.course_id, ST.sem_year;
+
+
+
+
+
+
+
+
+
+
+
+
